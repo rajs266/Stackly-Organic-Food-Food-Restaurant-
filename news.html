@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Feeds & Blog - Stackly Organic Food & Restaurant</title>
+  <meta name="description" content="Discover farm-fresh organic food recipes, agriculture wisdom, wellness insights, and latest community news at Stackly.">
+
+<link rel="icon" type="image/webp" href="./assets/top-logo.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="stackly-preloader" class="stackly-preloader">
+    <div class="preloader-bg-glow"></div>
+    <div class="preloader-floating-leaves">
+      <i class="fa-solid fa-leaf leaf-1"></i>
+      <i class="fa-solid fa-seedling leaf-2"></i>
+      <i class="fa-solid fa-leaf leaf-3"></i>
+      <i class="fa-solid fa-carrot leaf-4"></i>
+      <i class="fa-solid fa-apple-whole leaf-5"></i>
+    </div>
+    <div class="preloader-content">
+      <div class="preloader-icon-wrapper">
+        <div class="preloader-orbit-ring ring-outer"></div>
+        <div class="preloader-orbit-ring ring-inner"></div>
+        <div class="preloader-logo-box">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food" class="preloader-logo">
+        </div>
+        <div class="preloader-sprout-pulse" title="100% Organic">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+      </div>
+      <div class="preloader-brand-title">
+        <span class="brand-name">Stackly</span>
+        <span class="brand-tag">100% FRESH & ORGANIC</span>
+      </div>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar">
+          <div class="preloader-progress-fill" id="preloaderProgressFill"></div>
+        </div>
+        <div class="preloader-status-row">
+          <span class="preloader-status-text" id="preloaderStatusText">Harvesting fresh goodness...</span>
+          <span class="preloader-percent" id="preloaderPercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+<header class="header-area header-inner" id="siteHeader">
+
+<div class="top-bar">
+      <div class="container top-bar-container">
+        <div class="top-bar-left">
+          <span class="top-info"><i class="fa-solid fa-truck-fast"></i> Free express shipping on orders over $50</span>
+          <span class="top-divider">|</span>
+          <span class="top-info"><i class="fa-solid fa-leaf"></i> Stackly 100% Certified Organic Food & Restaurant</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="404.html" class="top-link"><i class="fa-solid fa-phone"></i> +1 (234) 567-890</a>
+          <span class="top-divider">|</span>
+          <span class="top-currency"><i class="fa-solid fa-globe"></i> English / USD</span>
+        </div>
+      </div>
+    </div>
+
+<nav class="navbar" id="navbar">
+      <div class="container nav-container">
+
+<a href="index.html" class="nav-brand" aria-label="Stackly Home">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food & Restaurant Logo" class="brand-logo">
+        </a>
+
+<ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="gallery.html" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a href="news.html" class="nav-link active">News</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+<div class="nav-actions">
+
+<button class="action-btn" id="wishlistToggleBtn" aria-label="View Wishlist" title="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-count">0</span>
+          </button>
+
+<button class="action-btn cart-btn" id="cartToggleBtn" aria-label="Open Shopping Cart" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge-count cart-count">0</span>
+          </button>
+
+<a href="login.html" class="btn btn-primary nav-login-btn">Log in</a>
+
+<button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+</div>
+    </nav>
+  </header>
+
+<div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <a href="index.html" aria-label="Stackly Home">
+        <img src="./assets/logo.webp" alt="Organic Food" class="drawer-logo">
+      </a>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="news.html" class="active">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="login.html" class="btn btn-primary w-100 mb-3">Log in</a>
+      <div class="drawer-contact-info">
+        <p><i class="fa-solid fa-phone"></i> +1 (234) 567-890</p>
+        <p><i class="fa-solid fa-envelope"></i> info@stackly.com</p>
+      </div>
+    </div>
+  </aside>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Mini Cart">
+    <div class="cart-drawer-header">
+      <h3>My Cart (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close Cart">&times;</button>
+    </div>
+
+<div class="cart-shipping-notice">
+      <div class="shipping-text">
+        <i class="fa-solid fa-truck"></i>
+        <span id="shippingNoticeText">Add <strong>$50.00</strong> to unlock <strong>FREE Shipping!</strong></span>
+      </div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+<div class="cart-items-container" id="cartItemsList">
+      <div class="cart-empty-message" style="text-align: center; padding: 50px 15px; color: var(--color-text-muted);">
+        <i class="fa-solid fa-basket-shopping" style="font-size: 3.2rem; color: var(--color-border); margin-bottom: 14px; display: block;"></i>
+        <p style="font-weight: 700; font-size: 1.15rem; color: var(--color-dark); margin-bottom: 6px;">Your cart is currently empty</p>
+        <p style="font-size: 0.92rem;">Discover our fresh farm-picked organic foods!</p>
+      </div>
+    </div>
+
+<div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal:</span>
+        <span class="cart-subtotal-val" id="cartSubtotalAmount">$0.00</span>
+      </div>
+      <div class="cart-actions-row">
+        <a href="shop.html" class="btn btn-secondary w-100" id="viewCartBtn">View Shop</a>
+        <button class="btn btn-dark w-100" id="checkoutBtn" onclick="window.location.href='404.html'">Checkout Now</button>
+      </div>
+    </div>
+  </aside>
+
+<aside class="cart-drawer wishlist-drawer" id="wishlistDrawer" aria-label="Wishlist Drawer">
+    <div class="cart-drawer-header">
+      <h3>My Wishlist (<span id="wishlistDrawerCount">0</span>)</h3>
+      <button class="cart-close-btn" id="wishlistCloseBtn" aria-label="Close Wishlist">&times;</button>
+    </div>
+
+<div class="cart-items-container" id="wishlistItemsList">
+      <div class="wishlist-empty-state" style="text-align: center; padding: 50px 15px; color: var(--color-text-muted);">
+        <i class="fa-regular fa-heart" style="font-size: 3.2rem; color: var(--color-border); margin-bottom: 14px; display: block;"></i>
+        <p style="font-weight: 700; font-size: 1.15rem; color: var(--color-dark); margin-bottom: 6px;">Your Wishlist is Empty</p>
+        <p style="font-size: 0.92rem;">Explore products and tap the heart icon to save favorites!</p>
+      </div>
+    </div>
+
+<div class="cart-drawer-footer">
+      <div class="cart-actions-row">
+        <a href="shop.html" class="btn btn-secondary w-100" id="closeWishlistBtn">Explore Shop</a>
+        <button class="btn btn-primary w-100" id="addAllWishlistToCartBtn">Add All To Cart</button>
+      </div>
+    </div>
+  </aside>
+
+<section class="page-banner news-page-banner" style="background-image: url('./assets/Home hero.webp');">
+    <div class="page-banner-overlay"></div>
+    <div class="container page-banner-container">
+      <div class="page-banner-content" data-aos="fade-right">
+        <span class="page-banner-tag">// WELCOME TO OUR BLOG</span>
+        <h1 class="page-banner-title">News Feeds</h1>
+        <div class="page-breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="divider">></span>
+          <span class="current">News Feeds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="news-main-section">
+    <div class="container">
+      <div class="news-layout-grid">
+
+<main class="news-feed-col" id="newsFeedCol">
+
+<article class="blog-feed-card" data-category="farming" data-tags="farm organic greenhouse fresh" data-aos="fade-up">
+            <div class="feed-media-wrap">
+              <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Greenhouse nursery farmer nurturing fresh organic crops">
+            </div>
+            <div class="feed-card-body">
+              <span class="feed-category-badge">Farming</span>
+              <h2 class="feed-title">
+                <a href="404.html">How organic greenhouse nurseries foster natural pest immunity year-round.</a>
+              </h2>
+              <div class="feed-meta">
+                <span><i class="fa-regular fa-user"></i> By Admin</span>
+                <span><i class="fa-regular fa-calendar"></i> June 24, 2026</span>
+                <span><i class="fa-regular fa-comments"></i> 3 Comments</span>
+              </div>
+              <p class="feed-excerpt">
+                Discover how regenerative closed-loop greenhouse farming protects heirloom crops from harsh frost and harmful parasites without artificial chemicals. Our cultivation specialists share practical techniques to nurture living microbial soil and optimize solar exposure.
+              </p>
+              <div class="feed-card-footer">
+                <div class="feed-author-box">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Neil Boro" class="feed-author-avatar">
+                  <span class="feed-author-name">Neil Boro</span>
+                </div>
+                <a href="404.html" class="feed-read-more-btn">
+                  <span>Read More</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+<article class="blog-feed-card" data-category="organic" data-tags="organic farm healthy fresh" data-aos="fade-up">
+            <div class="feed-media-wrap">
+              <img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="Hands planting sapling in rich garden soil">
+              <button class="feed-video-play-btn" id="blogVideoBtn" title="Watch Video" aria-label="Watch video">
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+            <div class="feed-card-body">
+              <span class="feed-category-badge">Organic</span>
+              <h2 class="feed-title">
+                <a href="404.html">Eco-friendly soil preparation: Enriching microbial life for seedlings.</a>
+              </h2>
+              <div class="feed-meta">
+                <span><i class="fa-regular fa-user"></i> By Admin</span>
+                <span><i class="fa-regular fa-calendar"></i> July 15, 2026</span>
+                <span><i class="fa-regular fa-comments"></i> 5 Comments</span>
+              </div>
+              <p class="feed-excerpt">
+                Healthy organic plants begin beneath the earth. Learn how aerating rich dark compost and integrating beneficial mycelium networks transforms compacted garden soil into fertile humus packed with bio-available nitrogen and essential trace minerals.
+              </p>
+              <div class="feed-card-footer">
+                <div class="feed-author-box">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Neil Boro" class="feed-author-avatar">
+                  <span class="feed-author-name">Neil Boro</span>
+                </div>
+                <a href="404.html" class="feed-read-more-btn">
+                  <span>Read More</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+<article class="blog-feed-card" data-category="recipes" data-tags="food recipes salad fresh" data-aos="fade-up">
+            <div class="feed-media-wrap">
+              <img src="./assets/blog-pasta.webp" alt="Artisanal organic pasta dish with fresh cherry tomatoes and basil">
+            </div>
+            <div class="feed-card-body">
+              <span class="feed-category-badge">Recipes</span>
+              <h2 class="feed-title">
+                <a href="404.html">Artisanal hand-rolled pasta tossed with sun-ripened orchard tomatoes.</a>
+              </h2>
+              <div class="feed-meta">
+                <span><i class="fa-regular fa-user"></i> By Chef Antonio</span>
+                <span><i class="fa-regular fa-calendar"></i> July 28, 2026</span>
+                <span><i class="fa-regular fa-comments"></i> 8 Comments</span>
+              </div>
+              <p class="feed-excerpt">
+                Experience pure Italian farm-to-table culinary perfection. Freshly harvested cherry tomatoes, cold-pressed olive oil, fragrant garden basil, and aged pecorino combine in an unforgettably wholesome pasta dish celebrating simple seasonal gastronomy.
+              </p>
+              <div class="feed-card-footer">
+                <div class="feed-author-box">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Neil Boro" class="feed-author-avatar">
+                  <span class="feed-author-name">Neil Boro</span>
+                </div>
+                <a href="404.html" class="feed-read-more-btn">
+                  <span>Read More</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+<article class="blog-feed-card" data-category="lifestyle" data-tags="healthy vegan organic" data-aos="fade-up">
+            <div class="feed-audio-player-wrap">
+              <button class="audio-play-ctrl" id="audioToggleBtn" title="Play audio" aria-label="Play audio snippet">
+                <i class="fa-solid fa-play" id="audioIcon"></i>
+              </button>
+              <div class="audio-track-info">
+                <div class="audio-track-title"><i class="fa-solid fa-headphones"></i> Episode 24: Organic Permaculture & Soil Micro-organisms</div>
+                <div class="audio-progress-bar">
+                  <div class="audio-progress-fill" id="audioProgress"></div>
+                </div>
+                <div class="audio-time-row">
+                  <span>02:15</span>
+                  <span>05:40</span>
+                </div>
+              </div>
+            </div>
+            <div class="feed-card-body">
+              <span class="feed-category-badge">Lifestyle</span>
+              <h2 class="feed-title">
+                <a href="404.html">Podcast: Regenerative root symbiosis and natural compost brew techniques.</a>
+              </h2>
+              <div class="feed-meta">
+                <span><i class="fa-regular fa-user"></i> By Admin</span>
+                <span><i class="fa-regular fa-calendar"></i> August 04, 2026</span>
+                <span><i class="fa-regular fa-comments"></i> 4 Comments</span>
+              </div>
+              <p class="feed-excerpt">
+                Listen to our recorded podcast session with biodynamic agronomists exploring how regenerative root symbiosis and natural compost teas foster crop immunity against invasive orchard pests.
+              </p>
+              <div class="feed-card-footer">
+                <div class="feed-author-box">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Neil Boro" class="feed-author-avatar">
+                  <span class="feed-author-name">Neil Boro</span>
+                </div>
+                <a href="404.html" class="feed-read-more-btn">
+                  <span>Read More</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+<article class="blog-feed-card" data-category="health" data-tags="fruits harvest healthy fresh food" data-aos="fade-up">
+            <div class="feed-card-body">
+              <span class="feed-category-badge">Health</span>
+              <h2 class="feed-title">
+                <a href="404.html">Harvesting vine-ripe heirloom tomatoes at peak nutritional density and flavor.</a>
+              </h2>
+              <div class="feed-meta">
+                <span><i class="fa-regular fa-user"></i> By Wellness Desk</span>
+                <span><i class="fa-regular fa-calendar"></i> August 12, 2026</span>
+                <span><i class="fa-regular fa-comments"></i> 6 Comments</span>
+              </div>
+              <p class="feed-excerpt">
+                Vine-ripened organic tomatoes offer superior levels of lycopene, vitamin C, and rich natural flavonoids. Discover harvest timing secrets that maximize garden sweetness while safeguarding delicate skins.
+              </p>
+              <div class="feed-card-footer">
+                <div class="feed-author-box">
+                  <img src="./assets/rosalina-author.webp" alt="Wellness Desk" class="feed-author-avatar">
+                  <span class="feed-author-name">Wellness Desk</span>
+                </div>
+                <a href="404.html" class="feed-read-more-btn">
+                  <span>Read More</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+<article class="blog-feed-card quote-highlight-card" data-category="organic" data-tags="organic farm healthy" data-aos="fade-up">
+            <p class="quote-highlight-text">
+              "Wholesome food cultivated from living organic soil is nature's purest gift to human vitality and planetary harmony."
+            </p>
+            <div class="quote-highlight-author">
+              <i class="fa-solid fa-leaf"></i>
+              <span>Stackly Biodynamic Growers Collective &mdash; August 2026</span>
+            </div>
+          </article>
+
+<article class="blog-feed-card" data-category="gardening" data-tags="gardening farm salad harvest fresh" data-aos="fade-up">
+            <div class="feed-media-wrap">
+              <img src="./assets/15d6b7d2343da02b1cf64778e79ccb75e0f18b66.webp" alt="Transplanting organic greenhouse crops">
+            </div>
+            <div class="feed-card-body">
+              <span class="feed-category-badge">Gardening</span>
+              <h2 class="feed-title">
+                <a href="404.html">Companion planting handbook: Maximize yields with chemical-free methods.</a>
+              </h2>
+              <div class="feed-meta">
+                <span><i class="fa-regular fa-user"></i> By Admin</span>
+                <span><i class="fa-regular fa-calendar"></i> August 20, 2026</span>
+                <span><i class="fa-regular fa-comments"></i> 2 Comments</span>
+              </div>
+              <p class="feed-excerpt">
+                Planting aromatic marigolds alongside leafy greens and sweet carrots creates a natural defense shield against destructive pests while encouraging vital pollinator activity throughout the sunny growing season.
+              </p>
+              <div class="feed-card-footer">
+                <div class="feed-author-box">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Neil Boro" class="feed-author-avatar">
+                  <span class="feed-author-name">Neil Boro</span>
+                </div>
+                <a href="404.html" class="feed-read-more-btn">
+                  <span>Read More</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+<div class="news-no-results" id="newsNoResults" style="display: none; text-align: center; padding: 60px 20px; background: #FFFFFF; border-radius: var(--radius-md); border: 1px dashed #D8D2C5; margin-bottom: 30px;">
+            <i class="fa-solid fa-seedling" style="font-size: 3rem; color: var(--color-primary); margin-bottom: 16px; display: block;"></i>
+            <h3 style="font-size: 1.4rem; color: var(--color-dark); margin-bottom: 8px;">No matching articles found</h3>
+            <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 20px;">Try searching for different keywords or clear your active filters.</p>
+            <button type="button" class="btn btn-primary" id="resetNewsFiltersBtn">View All Articles</button>
+          </div>
+
+<div class="news-pagination" data-aos="fade-up">
+            <button class="news-page-btn" onclick="window.location.href='404.html'" aria-label="Previous Page"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="news-page-btn active">1</button>
+            <button class="news-page-btn" onclick="window.location.href='404.html'">2</button>
+            <button class="news-page-btn" onclick="window.location.href='404.html'">3</button>
+            <button class="news-page-btn" onclick="window.location.href='404.html'" aria-label="Next Page"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+
+</main>
+
+<aside class="news-sidebar-col">
+
+<div class="sidebar-widget widget-author-card" data-aos="fade-up">
+            <img src="./assets/rosalina-author.webp" alt="Rosalina D. William" class="widget-author-photo">
+            <h3 class="widget-author-name">Rosalina D. William</h3>
+            <span class="widget-author-role">Head of Farm Cultivation</span>
+            <p class="widget-author-desc">
+              Dedicated to heirloom crop preservation, biodynamic permaculture, and sharing authentic wholesome kitchen recipes direct from our certified fields.
+            </p>
+            <div class="widget-author-socials">
+              <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+              <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+<div class="sidebar-widget" data-aos="fade-up">
+            <h3 class="widget-title">Search Objects</h3>
+            <form class="sidebar-search-form" id="newsSidebarSearchForm" onsubmit="return false;">
+              <input type="text" class="sidebar-search-input" id="newsSearchInput" placeholder="Search keywords..." aria-label="Search articles">
+              <button type="submit" class="sidebar-search-btn" id="newsSearchSubmitBtn" aria-label="Submit search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+
+<div class="sidebar-widget" data-aos="fade-up">
+            <h3 class="widget-title">Popular Feeds</h3>
+            <div class="popular-feeds-list">
+
+<div class="popular-feed-item">
+                <div class="popular-feed-thumb">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Organic greenhouse farming feed">
+                </div>
+                <div class="popular-feed-content">
+                  <h4 class="popular-feed-title"><a href="404.html">Greenhouse Nursery Pest Immunity Solutions</a></h4>
+                  <span class="popular-feed-date"><i class="fa-regular fa-calendar"></i> June 24, 2026</span>
+                </div>
+              </div>
+
+<div class="popular-feed-item">
+                <div class="popular-feed-thumb">
+                  <img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="Soil preparation feed">
+                </div>
+                <div class="popular-feed-content">
+                  <h4 class="popular-feed-title"><a href="404.html">Eco Soil Preparation & Healthy Root Seedlings</a></h4>
+                  <span class="popular-feed-date"><i class="fa-regular fa-calendar"></i> July 15, 2026</span>
+                </div>
+              </div>
+
+<div class="popular-feed-item">
+                <div class="popular-feed-thumb">
+                  <img src="./assets/blog-pasta.webp" alt="Gourmet pasta recipe feed">
+                </div>
+                <div class="popular-feed-content">
+                  <h4 class="popular-feed-title"><a href="404.html">Artisanal Organic Pasta with Fresh Orchard Herbs</a></h4>
+                  <span class="popular-feed-date"><i class="fa-regular fa-calendar"></i> July 28, 2026</span>
+                </div>
+              </div>
+
+<div class="popular-feed-item">
+                <div class="popular-feed-thumb">
+                  <img src="./assets/59ace3c2f68395fc23cd6e50a728d13c4cb744e0.webp" alt="Harvesting vegetables feed">
+                </div>
+                <div class="popular-feed-content">
+                  <h4 class="popular-feed-title"><a href="404.html">Summer Vine Ripe Tomatoes Harvesting Guide</a></h4>
+                  <span class="popular-feed-date"><i class="fa-regular fa-calendar"></i> August 12, 2026</span>
+                </div>
+              </div>
+
+</div>
+          </div>
+
+<div class="sidebar-widget" data-aos="fade-up">
+            <h3 class="widget-title">Categories</h3>
+            <ul class="sidebar-category-list" id="blogCategoryList">
+              <li class="sidebar-category-item">
+                <a href="#" class="blog-cat-filter active" data-category="all"><span>All Categories</span><span class="category-count">(7)</span></a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="#" class="blog-cat-filter" data-category="farming"><span>Farming</span><span class="category-count">(2)</span></a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="#" class="blog-cat-filter" data-category="organic"><span>Organic Living</span><span class="category-count">(1)</span></a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="#" class="blog-cat-filter" data-category="recipes"><span>Recipes</span><span class="category-count">(1)</span></a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="#" class="blog-cat-filter" data-category="lifestyle"><span>Lifestyle</span><span class="category-count">(1)</span></a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="#" class="blog-cat-filter" data-category="health"><span>Health & Wellness</span><span class="category-count">(1)</span></a>
+              </li>
+              <li class="sidebar-category-item">
+                <a href="#" class="blog-cat-filter" data-category="gardening"><span>Gardening</span><span class="category-count">(1)</span></a>
+              </li>
+            </ul>
+          </div>
+
+<div class="sidebar-widget" data-aos="fade-up">
+            <h3 class="widget-title">Never Miss News</h3>
+            <div class="sidebar-social-row">
+              <a href="404.html" class="sidebar-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="404.html" class="sidebar-social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" class="sidebar-social-btn" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+              <a href="404.html" class="sidebar-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+<div class="sidebar-widget" data-aos="fade-up">
+            <h3 class="widget-title">Twitter Feeds</h3>
+            <div class="twitter-feeds-list">
+              <div class="twitter-feed-item">
+                <p><i class="fa-brands fa-twitter"></i> Harvest season has begun! Check out fresh summer berries delivered daily to your doors.</p>
+                <span class="twitter-feed-date">2 hours ago</span>
+              </div>
+              <div class="twitter-feed-item">
+                <p><i class="fa-brands fa-twitter"></i> 100% certified biodynamic honeys back in stock with express free shipping over $50!</p>
+                <span class="twitter-feed-date">1 day ago</span>
+              </div>
+              <div class="twitter-feed-item">
+                <p><i class="fa-brands fa-twitter"></i> Join our upcoming weekend greenhouse tour and learn zero-waste composting techniques.</p>
+                <span class="twitter-feed-date">3 days ago</span>
+              </div>
+            </div>
+          </div>
+
+<div class="sidebar-widget" data-aos="fade-up">
+            <h3 class="widget-title">Instagram Feeds</h3>
+            <div class="sidebar-insta-grid">
+              <a href="404.html" class="insta-thumb" title="Instagram post"><img src="./assets/7973c9d58ffd5e2129e123755edb8a3136111ad9.webp" alt="Instagram farm watering feed"></a>
+              <a href="404.html" class="insta-thumb" title="Instagram post"><img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Instagram greenhouse farmer feed"></a>
+              <a href="404.html" class="insta-thumb" title="Instagram post"><img src="./assets/0cf1237c935a51a127dcbb0dbb3551b4e4e0b6d1.webp" alt="Instagram organic crops feed"></a>
+              <a href="404.html" class="insta-thumb" title="Instagram post"><img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="Instagram soil planting feed"></a>
+              <a href="404.html" class="insta-thumb" title="Instagram post"><img src="./assets/392cde6e8251df9786c8e5772ef56301a664c2c0.webp" alt="Instagram healthy harvest feed"></a>
+              <a href="404.html" class="insta-thumb" title="Instagram post"><img src="./assets/blog-pasta.webp" alt="Instagram artisanal pasta feed"></a>
+            </div>
+          </div>
+
+<div class="sidebar-widget" data-aos="fade-up">
+            <h3 class="widget-title">Popular Tags</h3>
+            <div class="sidebar-tags-cloud" id="blogTagsCloud">
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="organic">Organic</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="food">Food</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="farm">Farm</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="vegan">Vegan</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="healthy">Healthy</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="fruits">Fruits</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="fresh">Fresh</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="salad">Salad</a>
+              <a href="#" class="tag-pill blog-tag-filter" data-tag="harvest">Harvest</a>
+            </div>
+          </div>
+
+<div class="sidebar-widget sidebar-ad-card" data-aos="fade-up">
+            <span class="sidebar-ad-tag">// SPECIAL OFFER //</span>
+            <h3 class="sidebar-ad-title">Chamomile Energy Drink</h3>
+            <div class="sidebar-ad-img-box">
+              <img src="./assets/chamomile-energy-drink.webp" alt="Chamomile Energy Drink Bottle" class="sidebar-ad-img">
+            </div>
+            <a href="shop.html" class="btn-sidebar-shop">Shop Now</a>
+          </div>
+
+</aside>
+
+</div>
+    </div>
+  </section>
+
+<section class="features-bar-section" data-aos="fade-up">
+    <div class="container">
+      <div class="features-bar-card">
+        <div class="features-grid">
+
+<div class="feature-item" data-aos="fade-up" data-delay="50">
+            <div class="feature-icon-box">
+              <img src="./assets/4415c7e226862246a8d600b7ab173fcc53d1ed32.webp" alt="Curated Products Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Curated Products</h4>
+              <p class="feature-sub">Provide Curated Products for all product over $100</p>
+            </div>
+          </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="100">
+            <div class="feature-icon-box">
+              <img src="./assets/f8b26d35d6c4910b86ff56b27888cf0033d6e6d3.webp" alt="Handmade Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Handmade</h4>
+              <p class="feature-sub">We ensure the product quality that is our main goal</p>
+            </div>
+          </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="150">
+            <div class="feature-icon-box">
+              <img src="./assets/e87d28baeef0352116b272077c8d9a2837d4f876.webp" alt="Natural Food Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Natural Food</h4>
+              <p class="feature-sub">Return product within 3 days for any product you buy</p>
+            </div>
+          </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="200">
+            <div class="feature-icon-box">
+              <img src="./assets/613ffe9233406a58339e4c9bdb68a2bdde71ee42.webp" alt="Free home delivery Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Free home delivery</h4>
+              <p class="feature-sub">We ensure the product quality that you can trust easily</p>
+            </div>
+          </div>
+
+</div>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer-area bg-cream" id="contact">
+    <div class="container footer-main">
+      <div class="footer-grid">
+
+<div class="footer-col col-brand" data-aos="fade-up" data-delay="50">
+          <a href="index.html" class="footer-logo-link" aria-label="Stackly Home">
+            <img src="./assets/logo.webp" alt="Stackly Organic Food & Restaurant Logo" class="footer-logo">
+          </a>
+          <p class="footer-about">
+            Stackly delivers 100% certified organic foods and fresh farm produce directly to your doorstep.
+          </p>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Brooklyn, New York, United States</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="404.html">+0123-456789</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              <a href="404.html">example@example.com</a>
+            </li>
+          </ul>
+          <div class="footer-social-row">
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+<div class="footer-col col-company" data-aos="fade-up" data-delay="100">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-services" data-aos="fade-up" data-delay="150">
+          <h4 class="footer-col-title">Services.</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Order tracking</a></li>
+            <li><a href="404.html">Home Delivery Info</a></li>
+            <li><a href="404.html">Wholesale Produce</a></li>
+            <li><a href="404.html">Farm Subscriptions</a></li>
+            <li><a href="404.html">Terms & Conditions</a></li>
+            <li><a href="404.html">Promotional Offers</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-care" data-aos="fade-up" data-delay="200">
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Help Center</a></li>
+            <li><a href="404.html">Returns & Refunds</a></li>
+            <li><a href="404.html">Shipping Policy</a></li>
+            <li><a href="404.html">Quality Guarantee</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Payment Security</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-newsletter" data-aos="fade-up" data-delay="250">
+          <h4 class="footer-col-title">Newsletter</h4>
+          <p class="newsletter-desc">
+            Subscribe to our weekly Newsletter and receive updates via email.
+          </p>
+          <form class="newsletter-form" id="newsletterForm" action="404.html" method="get">
+            <div class="newsletter-input-box">
+              <input type="email" id="newsletterEmail" name="email" placeholder="Email*" required>
+              <button type="submit" class="newsletter-submit-btn" aria-label="Subscribe to newsletter">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+
+<div class="we-accept-wrap">
+            <span class="we-accept-title">We Accept</span>
+            <div class="payment-accept-row">
+              <span class="payment-logo paypal"><i class="fa-brands fa-paypal"></i> PayPal</span>
+              <span class="payment-logo visa"><i class="fa-brands fa-cc-visa"></i> VISA</span>
+              <span class="payment-logo discover"><i class="fa-brands fa-cc-discover"></i> DISCOVER</span>
+              <span class="payment-logo mastercard"><i class="fa-brands fa-cc-mastercard"></i> MasterCard</span>
+              <span class="payment-logo amex"><i class="fa-brands fa-cc-amex"></i> AMEX</span>
+            </div>
+          </div>
+        </div>
+
+</div>
+    </div>
+
+<div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p class="copyright-text">
+          All Rights Reserved @ Company 2026
+        </p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Terms & Conditions</a>
+          <a href="404.html">Claim</a>
+          <a href="404.html">Privacy & Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<div class="video-modal" id="videoModal">
+    <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+    <div class="video-modal-box">
+      <button class="video-close-btn" id="videoCloseBtn" aria-label="Close Video" title="Close Video">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="video-frame-container">
+        <video id="storyVideoPlayer" controls playsinline preload="metadata" muted>
+          <source src="./assets/story.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+    </div>
+  </div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<button class="back-to-top" id="backToTopBtn" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+<script src="script.js"></script>
+</body>
+</html>
+

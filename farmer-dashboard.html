@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage organic harvest inventories, wholesale distribution orders, cold storage telemetry, and farm analytics in the Stackly Farmer Production Portal.">
+  <meta name="theme-color" content="#79A206">
+  <title>Farmer Dashboard - Stackly Organic Food</title>
+
+<link rel="shortcut icon" href="./assets/top-logo.webp" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script>
+    // Instant user auth sync from Login Email
+    (function() {
+      const email = localStorage.getItem('organic_user_email') || '';
+      const username = localStorage.getItem('organic_user_name') || (email ? email.split('@')[0] : '');
+      if (username || email) {
+        document.addEventListener('DOMContentLoaded', function() {
+          if (username) {
+            document.querySelectorAll('.sidebar-user-name, .header-user-name').forEach(el => el.textContent = username);
+          }
+          if (email) {
+            document.querySelectorAll('.sidebar-user-email').forEach(el => el.textContent = email);
+          }
+        });
+      }
+    })();
+  </script>
+</head>
+<body class="dashboard-body" data-dashboard-role="farmer">
+
+<div id="stackly-preloader" class="stackly-preloader">
+    <div class="preloader-bg-glow"></div>
+    <div class="preloader-floating-leaves">
+      <i class="fa-solid fa-leaf leaf-1"></i>
+      <i class="fa-solid fa-seedling leaf-2"></i>
+      <i class="fa-solid fa-leaf leaf-3"></i>
+      <i class="fa-solid fa-carrot leaf-4"></i>
+      <i class="fa-solid fa-apple-whole leaf-5"></i>
+    </div>
+    <div class="preloader-content">
+      <div class="preloader-icon-wrapper">
+        <div class="preloader-orbit-ring ring-outer"></div>
+        <div class="preloader-orbit-ring ring-inner"></div>
+        <div class="preloader-logo-box">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food" class="preloader-logo">
+        </div>
+        <div class="preloader-sprout-pulse" title="100% Organic">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+      </div>
+      <div class="preloader-brand-title">
+        <span class="brand-name">Stackly</span>
+        <span class="brand-tag">100% FRESH & ORGANIC</span>
+      </div>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar">
+          <div class="preloader-progress-fill" id="preloaderProgressFill"></div>
+        </div>
+        <div class="preloader-status-row">
+          <span class="preloader-status-text" id="preloaderStatusText">Harvesting fresh goodness...</span>
+          <span class="preloader-percent" id="preloaderPercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="dashboard-container">
+
+<aside class="dashboard-sidebar" id="dashSidebar" aria-label="Farmer Portal Navigation">
+
+<div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand" title="Return to Stackly Home">
+          <img src="./assets/logo.webp" alt="Stackly Organic" class="sidebar-brand-img">
+          <span class="sidebar-role-tag">Producer</span>
+        </a>
+        <button type="button" class="mobile-sidebar-close" id="mobileSidebarCloseBtn" aria-label="Close menu" title="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+<div class="sidebar-user-card">
+        <div class="sidebar-user-avatar">
+          <img src="./assets/cta-man.webp" alt="Robert Evans Avatar">
+          <span class="user-status-dot" title="Producer Online"></span>
+        </div>
+        <div class="sidebar-user-meta">
+          <h4 class="sidebar-user-name">Robert Evans</h4>
+          <span class="sidebar-user-email">robert@sonomafarm.org</span>
+          <p class="sidebar-user-role"><i class="fa-solid fa-seedling" style="color: #79A206;"></i> Certified Producer</p>
+        </div>
+      </div>
+
+<nav class="sidebar-nav">
+        <div class="sidebar-group-title">Farm Operations</div>
+        <ul class="sidebar-menu">
+
+<li class="sidebar-item">
+            <a href="#analytics" class="sidebar-link active" data-target="analyticsSection">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="sidebar-label">Analytics & Sales</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#crops" class="sidebar-link" data-target="cropsSection">
+              <i class="fa-solid fa-wheat-awn"></i>
+              <span class="sidebar-label">My Harvests & Crops</span>
+              <span class="sidebar-badge">5 Crops</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#orders-manager" class="sidebar-link" data-target="distributionSection">
+              <i class="fa-solid fa-truck-ramp-box"></i>
+              <span class="sidebar-label">Bulk Orders</span>
+              <span class="sidebar-badge badge-new">3 Pending</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#story" class="sidebar-link" data-target="storySection">
+              <i class="fa-solid fa-camera-retro"></i>
+              <span class="sidebar-label">Farm Story & Media</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#logistics" class="sidebar-link" data-target="logisticsSection">
+              <i class="fa-solid fa-snowflake"></i>
+              <span class="sidebar-label">Cold Storage & Fleet</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#earnings" class="sidebar-link" data-target="earningsSection">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <span class="sidebar-label">Earnings & Invoices</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#farm-profile" class="sidebar-link" data-target="profileSection">
+              <i class="fa-solid fa-tractor"></i>
+              <span class="sidebar-label">Farm & Soil Profile</span>
+            </a>
+          </li>
+
+</ul>
+      </nav>
+
+<div class="sidebar-footer">
+        <button type="button" class="btn-sidebar-logout btn-logout-trigger" id="sidebarLogoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+
+</aside>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<main class="dashboard-main">
+
+<header class="dashboard-header">
+        <div class="header-left">
+
+<button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+<a href="index.html" class="header-mobile-brand" title="Stackly Organic">
+            <img src="./assets/logo.webp" alt="Stackly Organic" class="header-mobile-brand-img">
+          </a>
+
+<div class="header-breadcrumbs">
+            <h1 class="header-title" id="dashHeaderTitle">Analytics & Sales</h1>
+            <div class="header-path" id="dashHeaderPath">
+              <span>Farmer Portal</span> <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i> <span style="color: var(--dash-dark); font-weight: 600;">Analytics & Sales</span>
+            </div>
+          </div>
+        </div>
+
+<div class="header-search">
+          <i class="fa-solid fa-magnifying-glass header-search-icon"></i>
+          <input type="text" class="header-search-input" id="dashHeaderSearchInput" placeholder="Search crops, bulk buyers, telemetry...">
+        </div>
+
+<div class="header-right">
+
+<a href="index.html" class="btn-header-store" id="headerHomeBtn" title="Return to Home">
+            <i class="fa-solid fa-house"></i>
+            <span class="home-btn-label">Back to Home</span>
+          </a>
+
+<div class="notification-wrapper">
+            <button type="button" class="header-icon-btn" id="notificationBellBtn" aria-label="Notifications" title="Producer Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-badge" id="headerNotifBadge">4</span>
+            </button>
+
+<div class="notification-dropdown" id="notificationDropdown">
+              <div class="notification-dropdown-header">
+                <h4 class="notification-dropdown-title">Producer Alerts</h4>
+                <button type="button" class="btn-mark-read" id="markAllReadBtn">Mark all as read</button>
+              </div>
+              <ul class="notification-list">
+                <li class="notification-item unread">
+                  <div class="notification-item-icon type-order">
+                    <i class="fa-solid fa-cart-flatbed"></i>
+                  </div>
+                  <div class="notification-item-content">
+                    <p class="notification-item-text">New bulk order from <strong>Green Garden Bistro</strong>: 450 kg heirloom tomatoes!</p>
+                    <span class="notification-item-time">10 mins ago</span>
+                  </div>
+                </li>
+                <li class="notification-item unread">
+                  <div class="notification-item-icon type-fresh">
+                    <i class="fa-solid fa-snowflake"></i>
+                  </div>
+                  <div class="notification-item-content">
+                    <p class="notification-item-text">Cold Storage Unit A reached optimal curing temperature: <strong>3.5&deg;C</strong>.</p>
+                    <span class="notification-item-time">1 hour ago</span>
+                  </div>
+                </li>
+                <li class="notification-item unread">
+                  <div class="notification-item-icon type-reward">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                  </div>
+                  <div class="notification-item-content">
+                    <p class="notification-item-text">Direct deposit payout of <strong>$8,240.00</strong> cleared to your bank account.</p>
+                    <span class="notification-item-time">Yesterday</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+<div class="header-user-btn" title="Producer Menu">
+            <div class="header-user-avatar">
+              <img src="./assets/cta-man.webp" alt="Robert Evans">
+            </div>
+            <div class="header-user-meta">
+              <p class="header-user-name">Robert Evans</p>
+              <p class="header-user-tier" style="color: #79A206;">Sonoma Valley Organics</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+<div class="dashboard-content-area">
+
+<section class="dash-section active" id="analyticsSection">
+
+<div class="weather-widget-card" data-dash-aos data-delay="50">
+            <div class="weather-info-col">
+              <span class="status-badge" style="background: rgba(255,255,255,0.2); color: #FFFFFF; margin-bottom: 8px;">
+                <i class="fa-solid fa-location-dot"></i> Sonoma Valley Farm Fields &bull; Live Telemetry
+              </span>
+              <div class="weather-heading-row">
+                <span class="weather-temp">22&deg;C</span>
+                <span class="weather-condition-desc">Sunny &amp; Mild &bull; Optimal Harvest Window</span>
+              </div>
+            </div>
+
+<div class="weather-stats">
+              <div class="weather-stat-item">
+                <span>Field Humidity</span>
+                <strong>65%</strong>
+              </div>
+              <div class="weather-stat-item">
+                <span>Wind Speed</span>
+                <strong>12 km/h NW</strong>
+              </div>
+              <div class="weather-stat-item">
+                <span>Rain Risk</span>
+                <strong>0%</strong>
+              </div>
+              <div class="weather-stat-item">
+                <span>Soil Moisture</span>
+                <strong>38.4% (Ideal)</strong>
+              </div>
+            </div>
+          </div>
+
+<div class="kpi-grid">
+
+<div class="kpi-card" data-dash-aos data-delay="100">
+              <div class="kpi-info">
+                <span class="kpi-label">Harvest Sold (YTD)</span>
+                <span class="kpi-value">14,850 kg</span>
+                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +18.4% vs last year</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-boxes-packing"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-warning" data-dash-aos data-delay="150">
+              <div class="kpi-info">
+                <span class="kpi-label">Monthly Farm Revenue</span>
+                <span class="kpi-value">$38,420</span>
+                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +12.8% this month</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-sack-dollar"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-accent" data-dash-aos data-delay="200">
+              <div class="kpi-info">
+                <span class="kpi-label">Supply Contracts</span>
+                <span class="kpi-value">18 Active</span>
+                <span class="kpi-trend"><i class="fa-solid fa-handshake"></i> 3 pending dispatch</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-clipboard-check"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-info" data-dash-aos data-delay="250">
+              <div class="kpi-info">
+                <span class="kpi-label">Soil Organic Index</span>
+                <span class="kpi-value">98.4%</span>
+                <span class="kpi-trend"><i class="fa-solid fa-certificate"></i> Grade AAA Certified</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-seedling"></i>
+              </div>
+            </div>
+
+</div>
+
+<div class="dash-grid-2col dash-charts-grid" style="margin-bottom: 24px;">
+
+<div class="dash-card" data-dash-aos data-delay="300">
+              <div class="dash-card-header">
+                <div>
+                  <h3 class="dash-card-title"><i class="fa-solid fa-chart-column"></i> Daily Harvest Volume (kg)</h3>
+                  <span class="dash-card-subtitle">Produce weighed and packed this current week</span>
+                </div>
+                <span class="status-badge badge-ready">Real-time Scales</span>
+              </div>
+              <div class="chart-container-card">
+                <canvas id="harvestVolumeCanvas" class="chart-canvas"></canvas>
+              </div>
+            </div>
+
+<div class="dash-card" data-dash-aos data-delay="350">
+              <div class="dash-card-header">
+                <div>
+                  <h3 class="dash-card-title"><i class="fa-solid fa-chart-line"></i> Revenue Growth Trend ($)</h3>
+                  <span class="dash-card-subtitle">Last 6 months farm wholesale & restaurant revenue</span>
+                </div>
+                <span class="status-badge badge-transit">+24.5% Net Profit</span>
+              </div>
+              <div class="chart-container-card">
+                <canvas id="revenueTrendCanvas" class="chart-canvas"></canvas>
+              </div>
+            </div>
+
+</div>
+
+</section>
+
+<section class="dash-section" id="cropsSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-wheat-awn"></i> Current Harvest & Crop Batches</h3>
+                <span class="dash-card-subtitle">Monitor yields, stock levels, harvest dates, and unit prices</span>
+              </div>
+              <button type="button" class="btn-dash-primary" onclick="window.location.href='404.html'">
+                <i class="fa-solid fa-plus"></i> Add New Crop Batch
+              </button>
+            </div>
+
+<div class="crops-grid">
+
+<div class="crop-card">
+                <div class="crop-card-header">
+                  <div class="crop-variety-icon">
+                    <i class="fa-solid fa-apple-whole"></i>
+                  </div>
+                  <span class="status-badge badge-ready">Ready to Harvest</span>
+                </div>
+                <h4 style="margin: 0 0 4px; font-weight: 800; color: var(--dash-dark);">Purple Cherokee Tomatoes</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 8px;">Field Block 4 &bull; Heirloom Vine-Ripened</p>
+
+<div class="crop-stock-bar">
+                  <div class="crop-stock-fill" style="width: 82%;"></div>
+                </div>
+
+<div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-top: 10px;">
+                  <span>In Stock: <strong>2,400 kg</strong></span>
+                  <span style="color: var(--dash-primary-dark); font-weight: 800;">$4.50 / kg</span>
+                </div>
+                <div style="font-size: 0.76rem; color: var(--dash-text-muted); margin-top: 6px;">
+                  Harvest Window: Sep 20 - Oct 10
+                </div>
+              </div>
+
+<div class="crop-card">
+                <div class="crop-card-header">
+                  <div class="crop-variety-icon" style="background: #EBF8FF; color: #2B6CB0;">
+                    <i class="fa-solid fa-leaf"></i>
+                  </div>
+                  <span class="status-badge badge-ready">In Stock</span>
+                </div>
+                <h4 style="margin: 0 0 4px; font-weight: 800; color: var(--dash-dark);">Tuscan Lacinato Kale</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 8px;">Greenhouse 2 &bull; Organic Nutrient Rich</p>
+
+<div class="crop-stock-bar">
+                  <div class="crop-stock-fill" style="width: 65%; background: #319795;"></div>
+                </div>
+
+<div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-top: 10px;">
+                  <span>In Stock: <strong>850 kg</strong></span>
+                  <span style="color: var(--dash-primary-dark); font-weight: 800;">$3.20 / kg</span>
+                </div>
+                <div style="font-size: 0.76rem; color: var(--dash-text-muted); margin-top: 6px;">
+                  Harvest Window: Weekly Continuous
+                </div>
+              </div>
+
+<div class="crop-card">
+                <div class="crop-card-header">
+                  <div class="crop-variety-icon" style="background: #FEFCBF; color: #B7791F;">
+                    <i class="fa-solid fa-lemon"></i>
+                  </div>
+                  <span class="status-badge badge-storage">Curing / Cold Store</span>
+                </div>
+                <h4 style="margin: 0 0 4px; font-weight: 800; color: var(--dash-dark);">Golden Honeycrisp Apples</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 8px;">North Orchard &bull; Crisp & Sweet</p>
+
+<div class="crop-stock-bar">
+                  <div class="crop-stock-fill" style="width: 90%; background: #D69E2E;"></div>
+                </div>
+
+<div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-top: 10px;">
+                  <span>In Stock: <strong>5,200 kg</strong></span>
+                  <span style="color: var(--dash-primary-dark); font-weight: 800;">$2.80 / kg</span>
+                </div>
+                <div style="font-size: 0.76rem; color: var(--dash-text-muted); margin-top: 6px;">
+                  Storage Facility: Unit B (4.0&deg;C)
+                </div>
+              </div>
+
+<div class="crop-card">
+                <div class="crop-card-header">
+                  <div class="crop-variety-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                  </div>
+                  <span class="status-badge badge-ready">Harvesting Today</span>
+                </div>
+                <h4 style="margin: 0 0 4px; font-weight: 800; color: var(--dash-dark);">Baby Field Spinach</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 8px;">South Valley Loam &bull; Tender Cut</p>
+
+<div class="crop-stock-bar">
+                  <div class="crop-stock-fill" style="width: 50%;"></div>
+                </div>
+
+<div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-top: 10px;">
+                  <span>In Stock: <strong>1,100 kg</strong></span>
+                  <span style="color: var(--dash-primary-dark); font-weight: 800;">$5.00 / kg</span>
+                </div>
+                <div style="font-size: 0.76rem; color: var(--dash-text-muted); margin-top: 6px;">
+                  Packed Fresh: Morning Harvest
+                </div>
+              </div>
+
+<div class="crop-card">
+                <div class="crop-card-header">
+                  <div class="crop-variety-icon" style="background: #FEEBC8; color: #C05621;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.3em" height="1.3em" aria-hidden="true"><path d="M12 2C7.03 2 3 6.03 3 11c0 2.39 1.35 4.39 2.93 5.63C6.47 17.12 7 17.94 7 19v1a1 1 0 001 1h8a1 1 0 001-1v-1c0-1.06.53-1.88 1.07-2.37C19.65 15.39 21 13.39 21 11c0-4.97-4.03-9-9-9zm1 15H11v-4h2v4z"/></svg>
+                  </div>
+                  <span class="status-badge badge-low">Low Stock</span>
+                </div>
+                <h4 style="margin: 0 0 4px; font-weight: 800; color: var(--dash-dark);">Wild Forest Chanterelles</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 8px;">Oak Grove Shade &bull; Hand Foraged</p>
+
+<div class="crop-stock-bar">
+                  <div class="crop-stock-fill" style="width: 25%; background: #E53E3E;"></div>
+                </div>
+
+<div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-top: 10px;">
+                  <span>In Stock: <strong>320 kg</strong></span>
+                  <span style="color: var(--dash-primary-dark); font-weight: 800;">$16.50 / kg</span>
+                </div>
+                <div style="font-size: 0.76rem; color: var(--dash-text-muted); margin-top: 6px;">
+                  High demand restaurant reserved
+                </div>
+              </div>
+
+<div class="crop-card">
+                <div class="crop-card-header">
+                  <div class="crop-variety-icon" style="background: #FAF5FF; color: #6B46C1;">
+                    <i class="fa-solid fa-carrot"></i>
+                  </div>
+                  <span class="status-badge badge-ready">In Stock</span>
+                </div>
+                <h4 style="margin: 0 0 4px; font-weight: 800; color: var(--dash-dark);">Heritage Red Onions</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 8px;">East Field Row 7 &bull; Slow Cured</p>
+
+<div class="crop-stock-bar">
+                  <div class="crop-stock-fill" style="width: 72%; background: #6B46C1;"></div>
+                </div>
+
+<div style="display: flex; justify-content: space-between; font-size: 0.86rem; margin-top: 10px;">
+                  <span>In Stock: <strong>3,100 kg</strong></span>
+                  <span style="color: var(--dash-primary-dark); font-weight: 800;">$1.90 / kg</span>
+                </div>
+                <div style="font-size: 0.76rem; color: var(--dash-text-muted); margin-top: 6px;">
+                  Harvest Window: Oct 5 - Nov 1
+                </div>
+              </div>
+
+</div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="distributionSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-truck-ramp-box"></i> Bulk & Wholesale Orders</h3>
+                <span class="dash-card-subtitle">Review incoming grocery and restaurant orders, confirm availability, and dispatch cold fleet</span>
+              </div>
+              <span class="status-badge badge-transit">3 Orders Awaiting Fulfillment</span>
+            </div>
+
+<div class="dash-table-wrapper">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Order #</th>
+                    <th>Buyer Partner</th>
+                    <th>Requested Variety</th>
+                    <th>Quantity</th>
+                    <th>Destination</th>
+                    <th>Value</th>
+                    <th>Status</th>
+                    <th>Fulfillment Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+<tr>
+                    <td><strong>#BLK-1049</strong></td>
+                    <td>
+                      <strong>Green Garden Bistro</strong>
+                      <div class="table-product-sub">Michelin Eco Partner</div>
+                    </td>
+                    <td>Cherokee Heirloom Tomatoes</td>
+                    <td><strong>450 kg</strong></td>
+                    <td>Manhattan, NY</td>
+                    <td><strong style="color: var(--dash-primary-dark);">$2,025.00</strong></td>
+                    <td><span class="status-badge badge-processing"><i class="fa-solid fa-clock"></i> Pending</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder btn-accept-order" data-order-id="#BLK-1049">
+                        <i class="fa-solid fa-check"></i> Accept Order
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td><strong>#BLK-1050</strong></td>
+                    <td>
+                      <strong>Whole Earth Market</strong>
+                      <div class="table-product-sub">Organic Co-op Chain</div>
+                    </td>
+                    <td>Honeycrisp Apples (Crates)</td>
+                    <td><strong>1,200 kg</strong></td>
+                    <td>Queens Distribution Hub</td>
+                    <td><strong style="color: var(--dash-primary-dark);">$3,360.00</strong></td>
+                    <td><span class="status-badge badge-ready"><i class="fa-solid fa-check"></i> Accepted</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder" onclick="window.location.href='404.html'">
+                        <i class="fa-solid fa-truck-fast"></i> Dispatch
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td><strong>#BLK-1052</strong></td>
+                    <td>
+                      <strong>Chef Michael's Table</strong>
+                      <div class="table-product-sub">Farm-to-Table Eatery</div>
+                    </td>
+                    <td>Baby Spinach & Tuscan Kale</td>
+                    <td><strong>180 kg</strong></td>
+                    <td>Brooklyn, NY</td>
+                    <td><strong style="color: var(--dash-primary-dark);">$810.00</strong></td>
+                    <td><span class="status-badge badge-transit"><i class="fa-solid fa-truck"></i> En Route</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action" disabled style="opacity: 0.6;">
+                        <i class="fa-solid fa-check-double"></i> In Transit
+                      </button>
+                    </td>
+                  </tr>
+
+</tbody>
+              </table>
+            </div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="storySection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-photo-film"></i> Farm Story, Photos & Customer Feed</h3>
+                <span class="dash-card-subtitle">Showcase your soil philosophy, organic certifications, and weekly farm updates to customers</span>
+              </div>
+            </div>
+
+<div style="margin-bottom: 24px;">
+              <h4 style="font-weight: 800; font-size: 1rem; color: var(--dash-dark); margin: 0 0 12px;">Verified Farm Certifications</h4>
+              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                <div class="soil-audit-pill" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px;">
+                  <i class="fa-solid fa-certificate" style="color: var(--dash-primary); font-size: 1.4rem;"></i>
+                  <div style="text-align: left;">
+                    <h5 style="margin: 0;">USDA Organic</h5>
+                    <p style="font-size: 0.85rem; margin: 0;">Certified #ORG-89211</p>
+                  </div>
+                </div>
+
+<div class="soil-audit-pill" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px;">
+                  <i class="fa-solid fa-dna" style="color: #3182CE; font-size: 1.4rem;"></i>
+                  <div style="text-align: left;">
+                    <h5 style="margin: 0;">Non-GMO Project</h5>
+                    <p style="font-size: 0.85rem; margin: 0;">Verified 2026</p>
+                  </div>
+                </div>
+
+<div class="soil-audit-pill" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px;">
+                  <i class="fa-solid fa-sun" style="color: #D69E2E; font-size: 1.4rem;"></i>
+                  <div style="text-align: left;">
+                    <h5 style="margin: 0;">Demeter Biodynamic</h5>
+                    <p style="font-size: 0.85rem; margin: 0;">Active Soil Standard</p>
+                  </div>
+                </div>
+
+<div class="soil-audit-pill" style="display: flex; align-items: center; gap: 10px; padding: 10px 16px;">
+                  <i class="fa-solid fa-bee" style="color: #DD6B20; font-size: 1.4rem;"></i>
+                  <div style="text-align: left;">
+                    <h5 style="margin: 0;">Bee-Friendly</h5>
+                    <p style="font-size: 0.85rem; margin: 0;">Pollinator Habitat</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<div style="border-top: 1px solid var(--dash-border-light); padding-top: 20px;">
+              <h4 style="font-weight: 800; font-size: 1rem; color: var(--dash-dark); margin: 0 0 10px;">Post Customer Update / Farm News</h4>
+              <div class="dashboard-form-grid" style="grid-template-columns: 1fr;">
+                <textarea class="dashboard-input" id="farmUpdatePostInput" placeholder="Write an update for your consumers (e.g. 'Heirloom tomato seedlings planted today under sunny skies! Expect first harvests in 4 weeks.')..."></textarea>
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                  <button type="button" class="btn-dash-primary" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-bullhorn"></i> Publish Update
+                  </button>
+                </div>
+              </div>
+            </div>
+
+</div>
+
+</section>
+
+<section class="dash-section" id="logisticsSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-snowflake"></i> Live Cold Storage Facility Telemetry</h3>
+                <span class="dash-card-subtitle">IoT sensors monitoring temperature, humidity, and atmospheric curing</span>
+              </div>
+              <span class="status-badge badge-ready"><span class="sensor-status-pulse"></span> All Systems Normal</span>
+            </div>
+
+<div class="sensor-grid">
+
+<div class="sensor-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <h4 style="margin: 0; font-weight: 800; color: var(--dash-dark);">Unit A: Leafy Greens</h4>
+                  <span class="status-badge badge-ready">Optimal</span>
+                </div>
+                <div style="font-size: 2rem; font-weight: 800; color: #319795; font-family: var(--font-heading);">3.5&deg;C</div>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 4px 0 0;">
+                  Humidity: <strong>92%</strong> &bull; Capacity: <strong>84%</strong>
+                </p>
+              </div>
+
+<div class="sensor-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <h4 style="margin: 0; font-weight: 800; color: var(--dash-dark);">Unit B: Apples & Roots</h4>
+                  <span class="status-badge badge-ready">Optimal</span>
+                </div>
+                <div style="font-size: 2rem; font-weight: 800; color: #319795; font-family: var(--font-heading);">4.0&deg;C</div>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 4px 0 0;">
+                  Humidity: <strong>88%</strong> &bull; Capacity: <strong>65%</strong>
+                </p>
+              </div>
+
+<div class="sensor-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <h4 style="margin: 0; font-weight: 800; color: var(--dash-dark);">Unit C: Packing Staging</h4>
+                  <span class="status-badge badge-ready">Optimal</span>
+                </div>
+                <div style="font-size: 2rem; font-weight: 800; color: #319795; font-family: var(--font-heading);">5.0&deg;C</div>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 4px 0 0;">
+                  Humidity: <strong>80%</strong> &bull; Capacity: <strong>40%</strong>
+                </p>
+              </div>
+
+</div>
+          </div>
+
+<div class="dash-card" data-dash-aos data-delay="100">
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-van-shuttle"></i> Active Refrigerated Fleet Transit</h3>
+                <span class="dash-card-subtitle">En route delivery vehicles with live GPS and cargo temperature monitors</span>
+              </div>
+            </div>
+
+<div style="padding: 10px 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div>
+                  <strong>Refrigerated Van #04</strong> &mdash; Route: Sonoma Valley Farm &rarr; Brooklyn Distribution Center
+                </div>
+                <span class="status-badge badge-transit"><i class="fa-solid fa-truck"></i> 72% Completed</span>
+              </div>
+
+<div class="crop-stock-bar" style="height: 10px;">
+                <div class="crop-stock-fill" style="width: 72%;"></div>
+              </div>
+
+<div style="display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--dash-text-muted); margin-top: 8px;">
+                <span>Cargo Temp: <strong style="color: #38A169;">3.8&deg;C</strong></span>
+                <span>Speed: <strong>88 km/h</strong></span>
+                <span>Estimated Arrival: <strong>1 hr 45 min</strong></span>
+              </div>
+            </div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="earningsSection">
+
+<div class="kpi-grid" data-dash-aos>
+
+<div class="kpi-card">
+              <div class="kpi-info">
+                <span class="kpi-label">Available for Payout</span>
+                <span class="kpi-value">$8,240.00</span>
+                <span class="kpi-trend"><i class="fa-solid fa-bolt"></i> Ready for Transfer</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-warning">
+              <div class="kpi-info">
+                <span class="kpi-label">Pending Escrow</span>
+                <span class="kpi-value">$4,110.50</span>
+                <span class="kpi-trend"><i class="fa-solid fa-clock"></i> Releases upon delivery</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-accent">
+              <div class="kpi-info">
+                <span class="kpi-label">YTD Gross Earnings</span>
+                <span class="kpi-value">$184,650</span>
+                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +21.4% YoY</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-money-bill-trend-up"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-info">
+              <div class="kpi-info">
+                <span class="kpi-label">Direct Deposit Bank</span>
+                <span class="kpi-value" style="font-size: 1.2rem;">Checking &bull;&bull; 4892</span>
+                <span class="kpi-trend"><i class="fa-solid fa-shield-halved"></i> Verified Direct</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+            </div>
+
+</div>
+
+<div class="dash-card" data-dash-aos data-delay="100">
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-receipt"></i> Harvest Invoice Receipts</h3>
+                <span class="dash-card-subtitle">Downloadable tax and distribution receipts for partner transactions</span>
+              </div>
+            </div>
+
+<div class="dash-table-wrapper">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Invoice ID</th>
+                    <th>Date</th>
+                    <th>Buyer Partner</th>
+                    <th>Billed Amount</th>
+                    <th>Payment Status</th>
+                    <th>Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#INV-2026-089</strong></td>
+                    <td>Sep 24, 2026</td>
+                    <td>Green Garden Bistro</td>
+                    <td><strong>$2,025.00</strong></td>
+                    <td><span class="status-badge badge-ready">Paid Direct</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-download-inv" data-inv-id="#INV-2026-089">
+                        <i class="fa-solid fa-download"></i> Download PDF
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td><strong>#INV-2026-088</strong></td>
+                    <td>Sep 18, 2026</td>
+                    <td>Whole Earth Market</td>
+                    <td><strong>$4,850.00</strong></td>
+                    <td><span class="status-badge badge-ready">Paid Direct</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-download-inv" data-inv-id="#INV-2026-088">
+                        <i class="fa-solid fa-download"></i> Download PDF
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td><strong>#INV-2026-087</strong></td>
+                    <td>Sep 10, 2026</td>
+                    <td>Farmstead Eatery</td>
+                    <td><strong>$1,740.00</strong></td>
+                    <td><span class="status-badge badge-ready">Paid Direct</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-download-inv" data-inv-id="#INV-2026-087">
+                        <i class="fa-solid fa-download"></i> Download PDF
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="profileSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-tractor"></i> Farm Specifications & Soil Health Audit</h3>
+                <span class="dash-card-subtitle">Official agricultural registry data and soil microbiology report</span>
+              </div>
+            </div>
+
+<div class="dash-grid-2col dash-farm-specs-grid">
+
+<div style="border: 1px solid var(--dash-border); border-radius: var(--dash-radius-sm); padding: 20px; background: #FAFDF2;">
+                <h4 style="margin: 0 0 10px; font-weight: 800; color: var(--dash-dark);">Valley Crest Organic Farm & Orchards</h4>
+                <p style="font-size: 0.88rem; color: var(--dash-text); line-height: 1.7; margin: 0;">
+                  <strong>Physical Location:</strong> 1420 Orchard Valley Road, Sonoma County, CA 95476<br>
+                  <strong>Total Land Size:</strong> 145 Certified Organic Acres<br>
+                  <strong>Irrigation System:</strong> 100% Solar-Powered Closed-Loop Drip<br>
+                  <strong>Certification Audit:</strong> Annual renewal passed (Valid until 2027)
+                </p>
+              </div>
+
+<div style="border: 1px solid var(--dash-border); border-radius: var(--dash-radius-sm); padding: 20px; background: #FFFFFF;">
+                <h4 style="margin: 0 0 10px; font-weight: 800; color: var(--dash-dark);">2026 Soil Health Audit (Lab Certified)</h4>
+
+<div class="soil-audit-grid">
+                  <div class="soil-audit-pill">
+                    <h5>Soil pH</h5>
+                    <p style="color: var(--dash-primary-dark);">6.8</p>
+                  </div>
+                  <div class="soil-audit-pill">
+                    <h5>Nitrogen (N)</h5>
+                    <p style="color: var(--dash-primary-dark);">High</p>
+                  </div>
+                  <div class="soil-audit-pill">
+                    <h5>Phosphorus</h5>
+                    <p style="color: var(--dash-primary-dark);">48 ppm</p>
+                  </div>
+                  <div class="soil-audit-pill">
+                    <h5>Potassium</h5>
+                    <p style="color: var(--dash-primary-dark);">220 ppm</p>
+                  </div>
+                </div>
+
+<div style="margin-top: 14px; font-size: 0.82rem; color: var(--dash-text-muted);">
+                  <i class="fa-solid fa-circle-check" style="color: #38A169;"></i> Soil microbiological biomass score: <strong>94.2 / 100</strong> (Optimal organic grade).
+                </div>
+              </div>
+
+</div>
+          </div>
+
+</section>
+
+</div>
+    </main>
+
+</div>
+
+<div class="dash-modal-overlay" id="logoutConfirmModal" role="dialog" aria-modal="true" aria-labelledby="logoutModalTitle">
+    <div class="dash-modal-card">
+      <div class="logout-icon-ring">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </div>
+      <h3 class="dash-modal-title" id="logoutModalTitle">Are you sure you want to log out?</h3>
+      <p class="dash-modal-desc">
+        You will be securely signed out of your farmer producer portal. All active telemetry sessions will remain logged.
+      </p>
+      <div class="dash-modal-actions">
+        <button type="button" class="btn-modal-cancel" id="cancelLogoutBtn">Cancel</button>
+        <button type="button" class="btn-modal-confirm" id="confirmLogoutBtn">Yes, Log Out</button>
+      </div>
+    </div>
+  </div>
+
+<div class="toast-container" id="dashToastContainer"></div>
+
+</body>
+</html>
+

@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your organic food orders, loyalty rewards, delivery addresses, and account settings in your Stackly Customer Portal.">
+  <meta name="theme-color" content="#79A206">
+  <title>Customer Dashboard - Stackly Organic Food</title>
+
+<link rel="shortcut icon" href="./assets/top-logo.webp" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script>
+
+(function() {
+      const email = localStorage.getItem('organic_user_email') || '';
+      const username = localStorage.getItem('organic_user_name') || (email ? email.split('@')[0] : '');
+      if (username || email) {
+        document.addEventListener('DOMContentLoaded', function() {
+          if (username) {
+            document.querySelectorAll('.sidebar-user-name, .header-user-name').forEach(el => el.textContent = username);
+            const gt = document.querySelector('.greeting-title');
+            if (gt) gt.innerHTML = 'Welcome back, ' + username + '! <span class="greeting-emoji">&#127807;</span>';
+            const sn = document.getElementById('settingsName');
+            if (sn) sn.value = username;
+          }
+          if (email) {
+            document.querySelectorAll('.sidebar-user-email').forEach(el => el.textContent = email);
+            const se = document.getElementById('settingsEmail');
+            if (se) se.value = email;
+          }
+        });
+      }
+    })();
+  </script>
+</head>
+<body class="dashboard-body" data-dashboard-role="customer">
+
+<div id="stackly-preloader" class="stackly-preloader">
+    <div class="preloader-bg-glow"></div>
+    <div class="preloader-floating-leaves">
+      <i class="fa-solid fa-leaf leaf-1"></i>
+      <i class="fa-solid fa-seedling leaf-2"></i>
+      <i class="fa-solid fa-leaf leaf-3"></i>
+      <i class="fa-solid fa-carrot leaf-4"></i>
+      <i class="fa-solid fa-apple-whole leaf-5"></i>
+    </div>
+    <div class="preloader-content">
+      <div class="preloader-icon-wrapper">
+        <div class="preloader-orbit-ring ring-outer"></div>
+        <div class="preloader-orbit-ring ring-inner"></div>
+        <div class="preloader-logo-box">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food" class="preloader-logo">
+        </div>
+        <div class="preloader-sprout-pulse" title="100% Organic">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+      </div>
+      <div class="preloader-brand-title">
+        <span class="brand-name">Stackly</span>
+        <span class="brand-tag">100% FRESH & ORGANIC</span>
+      </div>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar">
+          <div class="preloader-progress-fill" id="preloaderProgressFill"></div>
+        </div>
+        <div class="preloader-status-row">
+          <span class="preloader-status-text" id="preloaderStatusText">Harvesting fresh goodness...</span>
+          <span class="preloader-percent" id="preloaderPercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="dashboard-container">
+
+<aside class="dashboard-sidebar" id="dashSidebar" aria-label="Customer Navigation Sidebar">
+
+<div class="sidebar-header">
+        <a href="index.html" class="sidebar-brand" title="Return to Stackly Home">
+          <img src="./assets/logo.webp" alt="Stackly Organic" class="sidebar-brand-img">
+          <span class="sidebar-role-tag">Customer</span>
+        </a>
+        <button type="button" class="mobile-sidebar-close" id="mobileSidebarCloseBtn" aria-label="Close menu" title="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+<div class="sidebar-user-card">
+        <div class="sidebar-user-avatar">
+          <img src="./assets/cta-man.webp" alt="Sarah Jenkins Avatar" id="sidebarUserAvatar">
+          <span class="user-status-dot" title="Active Online"></span>
+        </div>
+        <div class="sidebar-user-meta">
+          <h4 class="sidebar-user-name">Sarah Jenkins</h4>
+          <span class="sidebar-user-email">sarah@stackly.com</span>
+          <p class="sidebar-user-role"><i class="fa-solid fa-medal" style="color: #FFB800;"></i> Gold Harvest VIP</p>
+        </div>
+      </div>
+
+<nav class="sidebar-nav">
+        <div class="sidebar-group-title">Main Portal</div>
+        <ul class="sidebar-menu">
+
+<li class="sidebar-item">
+            <a href="#overview" class="sidebar-link active" data-target="overviewSection">
+              <i class="fa-solid fa-house"></i>
+              <span class="sidebar-label">Overview</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#orders" class="sidebar-link" data-target="ordersSection">
+              <i class="fa-solid fa-box-open"></i>
+              <span class="sidebar-label">My Orders</span>
+              <span class="sidebar-badge">8</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#rewards" class="sidebar-link" data-target="rewardsSection">
+              <i class="fa-solid fa-gift"></i>
+              <span class="sidebar-label">Loyalty & Rewards</span>
+              <span class="sidebar-badge badge-new">New</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#wishlist" class="sidebar-link" data-target="wishlistSection">
+              <i class="fa-solid fa-heart"></i>
+              <span class="sidebar-label">Wishlist</span>
+              <span class="sidebar-badge sidebar-badge-wishlist">4</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#addresses" class="sidebar-link" data-target="addressesSection">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <span class="sidebar-label">Saved Addresses</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#support" class="sidebar-link" data-target="supportSection">
+              <i class="fa-solid fa-circle-question"></i>
+              <span class="sidebar-label">Help & Support</span>
+            </a>
+          </li>
+
+<li class="sidebar-item">
+            <a href="#settings" class="sidebar-link" data-target="settingsSection">
+              <i class="fa-solid fa-sliders"></i>
+              <span class="sidebar-label">Account Settings</span>
+            </a>
+          </li>
+
+</ul>
+      </nav>
+
+<div class="sidebar-footer">
+        <button type="button" class="btn-sidebar-logout btn-logout-trigger" id="sidebarLogoutBtn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+
+</aside>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<main class="dashboard-main">
+
+<header class="dashboard-header">
+        <div class="header-left">
+
+<button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+<a href="index.html" class="header-mobile-brand" title="Stackly Organic">
+            <img src="./assets/logo.webp" alt="Stackly Organic" class="header-mobile-brand-img">
+          </a>
+
+<div class="header-breadcrumbs">
+            <h1 class="header-title" id="dashHeaderTitle">Overview</h1>
+            <div class="header-path" id="dashHeaderPath">
+              <span>Customer Portal</span> <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i> <span style="color: var(--dash-dark); font-weight: 600;">Overview</span>
+            </div>
+          </div>
+        </div>
+
+<div class="header-search">
+          <i class="fa-solid fa-magnifying-glass header-search-icon"></i>
+          <input type="text" class="header-search-input" id="dashHeaderSearchInput" placeholder="Search orders, produce, rewards...">
+        </div>
+
+<div class="header-right">
+
+<a href="index.html" class="btn-header-store" id="headerHomeBtn" title="Return to Home">
+            <i class="fa-solid fa-house"></i>
+            <span class="home-btn-label">Back to Home</span>
+          </a>
+
+<div class="notification-wrapper">
+            <button type="button" class="header-icon-btn" id="notificationBellBtn" aria-label="Notifications" title="Notifications">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notification-badge" id="headerNotifBadge">3</span>
+            </button>
+
+<div class="notification-dropdown" id="notificationDropdown">
+              <div class="notification-dropdown-header">
+                <h4 class="notification-dropdown-title">Recent Alerts</h4>
+                <button type="button" class="btn-mark-read" id="markAllReadBtn">Mark all as read</button>
+              </div>
+              <ul class="notification-list">
+                <li class="notification-item unread">
+                  <div class="notification-item-icon type-order">
+                    <i class="fa-solid fa-truck-fast"></i>
+                  </div>
+                  <div class="notification-item-content">
+                    <p class="notification-item-text"><strong>Order #STK-9340</strong> is out for refrigerated delivery!</p>
+                    <span class="notification-item-time">25 mins ago</span>
+                  </div>
+                </li>
+                <li class="notification-item unread">
+                  <div class="notification-item-icon type-reward">
+                    <i class="fa-solid fa-star"></i>
+                  </div>
+                  <div class="notification-item-content">
+                    <p class="notification-item-text">You earned <strong>+150 points</strong> from your local farm harvest order.</p>
+                    <span class="notification-item-time">2 hours ago</span>
+                  </div>
+                </li>
+                <li class="notification-item unread">
+                  <div class="notification-item-icon type-fresh">
+                    <i class="fa-solid fa-leaf"></i>
+                  </div>
+                  <div class="notification-item-content">
+                    <p class="notification-item-text">Fresh heirloom apples & artisan sourdough just restocked!</p>
+                    <span class="notification-item-time">Yesterday</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+<div class="header-user-btn" title="Account Menu">
+            <div class="header-user-avatar">
+              <img src="./assets/cta-man.webp" alt="Sarah Jenkins">
+            </div>
+            <div class="header-user-meta">
+              <p class="header-user-name">Sarah Jenkins</p>
+              <p class="header-user-tier">Gold VIP</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+<div class="dashboard-content-area">
+
+<section class="dash-section active" id="overviewSection">
+
+<div class="greeting-banner" data-dash-aos data-delay="50">
+            <div class="greeting-content">
+              <span class="greeting-badge">
+                <i class="fa-solid fa-award"></i> Gold Harvest Member &bull; Member since March 2024
+              </span>
+              <h2 class="greeting-title">Welcome back, Sarah! &#127807;</h2>
+              <p class="greeting-text">
+                Your fresh weekly organic basket has been harvested and is on its way. You have <strong>1,420 reward points</strong> ready to redeem for farm goods.
+              </p>
+            </div>
+            <div class="greeting-actions">
+              <a href="#orders" class="btn-dash-primary" onclick="document.querySelector('[data-target=\'ordersSection\']').click()">
+                <i class="fa-solid fa-truck"></i> Track Active Order
+              </a>
+              <a href="shop.html" class="btn-dash-outline" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.08);">
+                <i class="fa-solid fa-basket-shopping"></i> Browse Produce
+              </a>
+            </div>
+          </div>
+
+<div class="kpi-grid">
+
+<div class="kpi-card" data-dash-aos data-delay="100">
+              <div class="kpi-info">
+                <span class="kpi-label">Recent Orders</span>
+                <span class="kpi-value">8 Orders</span>
+                <span class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> 2 en route today</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-box-open"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-warning" data-dash-aos data-delay="150">
+              <div class="kpi-info">
+                <span class="kpi-label">Total Saved</span>
+                <span class="kpi-value">$284.50</span>
+                <span class="kpi-trend"><i class="fa-solid fa-tag"></i> Via Member Perks</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-piggy-bank"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-accent" data-dash-aos data-delay="200">
+              <div class="kpi-info">
+                <span class="kpi-label">Reward Points</span>
+                <span class="kpi-value" id="userRewardPoints">1,420 pts</span>
+                <span class="kpi-trend"><i class="fa-solid fa-coins"></i> Value: $28.40</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+<div class="kpi-card variant-info" data-dash-aos data-delay="250">
+              <div class="kpi-info">
+                <span class="kpi-label">CO<sub>2</sub> Offset</span>
+                <span class="kpi-value">42.8 kg</span>
+                <span class="kpi-trend"><i class="fa-solid fa-seedling"></i> Local Farm Sourced</span>
+              </div>
+              <div class="kpi-icon-box">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+            </div>
+
+</div>
+
+<div class="dash-card" data-dash-aos data-delay="300">
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-truck-ramp-box"></i> Live Order Tracker: #STK-9340</h3>
+                <span class="dash-card-subtitle">Refrigerated courier van en route &bull; Estimated delivery today by 4:30 PM</span>
+              </div>
+              <span class="status-badge badge-transit"><i class="fa-solid fa-truck"></i> Out for Delivery</span>
+            </div>
+
+<div class="order-tracker-box">
+              <div class="stepper-steps">
+                <div class="stepper-progress-fill" style="width: 72%;"></div>
+
+<div class="step-item completed">
+                  <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                  <span class="step-title">Order Placed</span>
+                  <span class="step-time">09:15 AM</span>
+                </div>
+
+<div class="step-item completed">
+                  <div class="step-circle"><i class="fa-solid fa-check"></i></div>
+                  <span class="step-title">Farm Harvested</span>
+                  <span class="step-time">11:30 AM</span>
+                </div>
+
+<div class="step-item active">
+                  <div class="step-circle"><i class="fa-solid fa-truck-fast"></i></div>
+                  <span class="step-title">Out for Delivery</span>
+                  <span class="step-time">02:10 PM</span>
+                </div>
+
+<div class="step-item">
+                  <div class="step-circle"><i class="fa-regular fa-house"></i></div>
+                  <span class="step-title">Delivered</span>
+                  <span class="step-time">Est. 04:30 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+<div class="dash-card" data-dash-aos data-delay="350">
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Purchases</h3>
+                <span class="dash-card-subtitle">Review your latest farm deliveries and quickly reorder staples</span>
+              </div>
+              <a href="#orders" class="btn-table-action" onclick="document.querySelector('[data-target=\'ordersSection\']').click()">View All (8)</a>
+            </div>
+
+<div class="dash-table-wrapper">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Order Details</th>
+                    <th>Date</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>#STK-9340</strong>
+                      <div class="table-product-sub">Eco Express Courier</div>
+                    </td>
+                    <td>Today, Sep 25</td>
+                    <td>
+                      <div class="table-product-cell">
+                        <img src="./assets/bakery-artisan-bread.webp" alt="Artisan Bread" class="table-thumb">
+                        <div>
+                          <div class="table-product-name">Artisan Loaf & Farm Veggies</div>
+                          <span class="table-product-sub">3 organic items</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td><strong>$42.20</strong></td>
+                    <td><span class="status-badge badge-transit"><i class="fa-solid fa-truck"></i> En Route</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder" data-order-id="#STK-9340" onclick="window.location.href='404.html'">
+                        <i class="fa-solid fa-arrow-rotate-right"></i> Reorder
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td>
+                      <strong>#STK-9281</strong>
+                      <div class="table-product-sub">Standard Home Drop</div>
+                    </td>
+                    <td>Sep 21, 2026</td>
+                    <td>
+                      <div class="table-product-cell">
+                        <img src="./assets/meat-salmon-fillet.webp" alt="Salmon Fillet" class="table-thumb">
+                        <div>
+                           <div class="table-product-name">Organic Wild Salmon & Greens</div>
+                          <span class="table-product-sub">4 organic items</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td><strong>$68.50</strong></td>
+                    <td><span class="status-badge badge-delivered"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder" data-order-id="#STK-9281" onclick="window.location.href='404.html'">
+                        <i class="fa-solid fa-arrow-rotate-right"></i> Reorder
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="ordersSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-box-archive"></i> Order History & Tracking</h3>
+                <span class="dash-card-subtitle">All past and current organic farm orders with tracking and one-click reordering</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <span class="status-badge badge-delivered">5 Delivered</span>
+                <span class="status-badge badge-transit">2 In Transit</span>
+              </div>
+            </div>
+
+<div class="dash-table-wrapper">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Order #</th>
+                    <th>Date</th>
+                    <th>Produce Summary</th>
+                    <th>Total</th>
+                    <th>Delivery Status</th>
+                    <th>Receipt</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+<tr>
+                    <td><strong>#STK-9340</strong></td>
+                    <td>Sep 25, 2026</td>
+                    <td>
+                      <div class="table-product-cell">
+                        <img src="./assets/bakery-artisan-bread.webp" alt="Artisan Bread" class="table-thumb">
+                        <div>
+                          <div class="table-product-name">Artisan Sourdough + Farm Basket</div>
+                          <span class="table-product-sub">Farm fresh eggs, raw butter, sourdough</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td><strong>$42.20</strong></td>
+                    <td><span class="status-badge badge-transit"><i class="fa-solid fa-truck"></i> Out for Delivery</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-download-inv" data-inv-id="#INV-STK-9340">
+                        <i class="fa-regular fa-file-pdf"></i> PDF
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder" data-order-id="#STK-9340" onclick="window.location.href='404.html'">
+                        <i class="fa-solid fa-repeat"></i> Reorder
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td><strong>#STK-9281</strong></td>
+                    <td>Sep 21, 2026</td>
+                    <td>
+                      <div class="table-product-cell">
+                        <img src="./assets/meat-salmon-fillet.webp" alt="Wild Salmon" class="table-thumb">
+                        <div>
+                          <div class="table-product-name">Wild Pacific Salmon & Tuscan Kale</div>
+                          <span class="table-product-sub">2x Salmon fillet, 1kg organic kale</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td><strong>$68.50</strong></td>
+                    <td><span class="status-badge badge-delivered"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-download-inv" data-inv-id="#INV-STK-9281">
+                        <i class="fa-regular fa-file-pdf"></i> PDF
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder" data-order-id="#STK-9281" onclick="window.location.href='404.html'">
+                        <i class="fa-solid fa-repeat"></i> Reorder
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td><strong>#STK-9150</strong></td>
+                    <td>Sep 14, 2026</td>
+                    <td>
+                      <div class="table-product-cell">
+                        <img src="./assets/meat-beef-steak.webp" alt="Organic Steak" class="table-thumb">
+                        <div>
+                          <div class="table-product-name">Grass-Fed Prime Ribeye & Veggies</div>
+                          <span class="table-product-sub">Sonoma Pasture Raised, root crops</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td><strong>$89.90</strong></td>
+                    <td><span class="status-badge badge-delivered"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-download-inv" data-inv-id="#INV-STK-9150">
+                        <i class="fa-regular fa-file-pdf"></i> PDF
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder" data-order-id="#STK-9150" onclick="window.location.href='404.html'">
+                        <i class="fa-solid fa-repeat"></i> Reorder
+                      </button>
+                    </td>
+                  </tr>
+
+<tr>
+                    <td><strong>#STK-9022</strong></td>
+                    <td>Sep 04, 2026</td>
+                    <td>
+                      <div class="table-product-cell">
+                        <img src="./assets/blog-pasta.webp" alt="Handmade Pasta" class="table-thumb">
+                        <div>
+                          <div class="table-product-name">Handmade Semolina Pasta & Basil</div>
+                          <span class="table-product-sub">Artisanal farm pasta pack</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td><strong>$34.00</strong></td>
+                    <td><span class="status-badge badge-delivered"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-download-inv" data-inv-id="#INV-STK-9022">
+                        <i class="fa-regular fa-file-pdf"></i> PDF
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="btn-table-action btn-reorder" data-order-id="#STK-9022" onclick="window.location.href='404.html'">
+                        <i class="fa-solid fa-repeat"></i> Reorder
+                      </button>
+                    </td>
+                  </tr>
+
+</tbody>
+              </table>
+            </div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="rewardsSection">
+
+<div class="rewards-hero-card" data-dash-aos>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+              <div>
+                <span class="status-badge" style="background: #FEFCBF; color: #744210; margin-bottom: 6px;">
+                  <i class="fa-solid fa-crown"></i> Current Tier: Gold Harvest VIP
+                </span>
+                <h3 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--dash-dark); margin: 0;">
+                  750 / 1,000 Points to Platinum VIP Tier
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--dash-text-muted); margin: 4px 0 0;">
+                  Earn 250 more points to unlock free eco shipping on all orders and private farm tasting access!
+                </p>
+              </div>
+              <div style="text-align: right;">
+                <span style="font-size: 0.8rem; color: var(--dash-text-muted); font-weight: 600;">Available Balance</span>
+                <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--dash-primary-dark);">1,420 pts</div>
+              </div>
+            </div>
+
+<div class="progress-tier-bar">
+              <div class="progress-tier-fill" style="width: 75%;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--dash-text-muted); font-weight: 700;">
+              <span>Silver (500 pts)</span>
+              <span style="color: var(--dash-primary-dark);">Gold (Current &bull; 750 pts)</span>
+              <span>Platinum VIP (1,000 pts)</span>
+            </div>
+          </div>
+
+<h3 class="dash-card-title" style="margin-bottom: 16px;"><i class="fa-solid fa-ticket"></i> Active Coupons & Promo Codes</h3>
+          <div class="coupons-grid" data-dash-aos data-delay="100">
+
+<div class="coupon-card">
+              <div>
+                <span class="status-badge badge-ready">25% OFF</span>
+                <h4 style="margin: 10px 0 4px; font-weight: 800; color: var(--dash-dark);">Fresh Fruit Harvest Box</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0;">Valid on seasonal fruit baskets over $40.</p>
+              </div>
+              <div class="coupon-code-pill">
+                <span>HARVEST25</span>
+                <button type="button" class="btn-copy-code" data-code="HARVEST25"><i class="fa-regular fa-copy"></i> Copy</button>
+              </div>
+            </div>
+
+<div class="coupon-card">
+              <div>
+                <span class="status-badge badge-ready">FREE SHIPPING</span>
+                <h4 style="margin: 10px 0 4px; font-weight: 800; color: var(--dash-dark);">Refrigerated Farm Courier</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0;">Free temperature-controlled doorstep drop.</p>
+              </div>
+              <div class="coupon-code-pill">
+                <span>FREESHIP</span>
+                <button type="button" class="btn-copy-code" data-code="FREESHIP"><i class="fa-regular fa-copy"></i> Copy</button>
+              </div>
+            </div>
+
+<div class="coupon-card">
+              <div>
+                <span class="status-badge badge-ready">15% OFF</span>
+                <h4 style="margin: 10px 0 4px; font-weight: 800; color: var(--dash-dark);">Local Organic Dairy</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0;">Artisanal pasture butter & fresh yogurt.</p>
+              </div>
+              <div class="coupon-code-pill">
+                <span>FARMER15</span>
+                <button type="button" class="btn-copy-code" data-code="FARMER15"><i class="fa-regular fa-copy"></i> Copy</button>
+              </div>
+            </div>
+
+</div>
+
+<h3 class="dash-card-title" style="margin: 28px 0 16px;"><i class="fa-solid fa-gift"></i> Redeem Points for Farm Perks</h3>
+          <div class="kpi-grid" data-dash-aos data-delay="150">
+
+<div class="dash-card" style="margin: 0;">
+              <div style="font-size: 1.8rem; color: var(--dash-primary); margin-bottom: 12px;"><i class="fa-solid fa-lemon"></i></div>
+              <h4 style="font-weight: 800; margin: 0 0 6px; font-size: 1.05rem;">1kg Organic Avocados</h4>
+              <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 14px;">Farm-ripe Hass avocados delivered with your order.</p>
+              <button type="button" class="btn-dash-primary btn-redeem-perk" style="width: 100%; justify-content: center;" data-perk-title="1kg Organic Avocados" data-perk-cost="500" onclick="window.location.href='404.html'">
+                Redeem (500 pts)
+              </button>
+            </div>
+
+<div class="dash-card" style="margin: 0;">
+              <div style="font-size: 1.8rem; color: #D69E2E; margin-bottom: 12px;"><i class="fa-solid fa-jar"></i></div>
+              <h4 style="font-weight: 800; margin: 0 0 6px; font-size: 1.05rem;">Raw Wildflower Honey</h4>
+              <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 14px;">500g jar of unpasteurized local bee honey.</p>
+              <button type="button" class="btn-dash-primary btn-redeem-perk" style="width: 100%; justify-content: center;" data-perk-title="Raw Wildflower Honey" data-perk-cost="800" onclick="window.location.href='404.html'">
+                Redeem (800 pts)
+              </button>
+            </div>
+
+<div class="dash-card" style="margin: 0;">
+              <div style="font-size: 1.8rem; color: #319795; margin-bottom: 12px;"><i class="fa-solid fa-utensils"></i></div>
+              <h4 style="font-weight: 800; margin: 0 0 6px; font-size: 1.05rem;">Farm-to-Table Dinner Pass</h4>
+              <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 14px;">VIP tasting menu voucher at Stackly Restaurant.</p>
+              <button type="button" class="btn-dash-primary btn-redeem-perk" style="width: 100%; justify-content: center;" data-perk-title="Farm Dinner Pass" data-perk-cost="1200" onclick="window.location.href='404.html'">
+                Redeem (1,200 pts)
+              </button>
+            </div>
+
+<div class="dash-card" style="margin: 0;">
+              <div style="font-size: 1.8rem; color: #805AD5; margin-bottom: 12px;"><i class="fa-solid fa-basket-shopping"></i></div>
+              <h4 style="font-weight: 800; margin: 0 0 6px; font-size: 1.05rem;">Artisan Harvest Bakery Box</h4>
+              <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 14px;">Curated heirloom sourdough loaf, berry pastries & butter cakes.</p>
+              <button type="button" class="btn-dash-primary btn-redeem-perk" style="width: 100%; justify-content: center;" data-perk-title="Artisan Bakery Box" data-perk-cost="1500" onclick="window.location.href='404.html'">
+                Redeem (1,500 pts)
+              </button>
+            </div>
+
+</div>
+
+</section>
+
+<section class="dash-section" id="wishlistSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-heart" style="color: #E53E3E;"></i> My Organic Wishlist</h3>
+                <span class="dash-card-subtitle">Saved farm produce and artisanal groceries ready to transfer to your cart</span>
+              </div>
+              <span class="status-badge badge-ready">In Stock & Ready</span>
+            </div>
+
+<div class="wishlist-grid">
+
+<div class="wishlist-card">
+                <div class="wishlist-img-box">
+                  <img src="./assets/bakery-artisan-bread.webp" alt="Artisan Bread" class="wishlist-img">
+                  <button type="button" class="wishlist-remove-btn" title="Remove" data-title="Artisan Sourdough Loaf">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+                <div class="wishlist-body">
+                  <span class="status-badge badge-ready" style="align-self: flex-start; margin-bottom: 6px;">Stone Ground</span>
+                  <h4 class="wishlist-title">Artisan Sourdough Loaf</h4>
+                  <div class="wishlist-price">$6.50</div>
+                  <button type="button" class="btn-move-cart" data-title="Artisan Sourdough Loaf" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-cart-plus"></i> Move to Cart
+                  </button>
+                </div>
+              </div>
+
+<div class="wishlist-card">
+                <div class="wishlist-img-box">
+                  <img src="./assets/meat-salmon-fillet.webp" alt="Salmon Fillet" class="wishlist-img">
+                  <button type="button" class="wishlist-remove-btn" title="Remove" data-title="Wild Pacific Salmon Fillet">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+                <div class="wishlist-body">
+                  <span class="status-badge badge-ready" style="align-self: flex-start; margin-bottom: 6px;">Wild Caught</span>
+                  <h4 class="wishlist-title">Wild Pacific Salmon Fillet</h4>
+                  <div class="wishlist-price">$22.00</div>
+                  <button type="button" class="btn-move-cart" data-title="Wild Pacific Salmon Fillet" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-cart-plus"></i> Move to Cart
+                  </button>
+                </div>
+              </div>
+
+<div class="wishlist-card">
+                <div class="wishlist-img-box">
+                  <img src="./assets/meat-beef-steak.webp" alt="Prime Steak" class="wishlist-img">
+                  <button type="button" class="wishlist-remove-btn" title="Remove" data-title="Grass-Fed Ribeye Steak">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+                <div class="wishlist-body">
+                  <span class="status-badge badge-ready" style="align-self: flex-start; margin-bottom: 6px;">100% Pasture</span>
+                  <h4 class="wishlist-title">Grass-Fed Ribeye Steak</h4>
+                  <div class="wishlist-price">$28.50</div>
+                  <button type="button" class="btn-move-cart" data-title="Grass-Fed Ribeye Steak" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-cart-plus"></i> Move to Cart
+                  </button>
+                </div>
+              </div>
+
+<div class="wishlist-card">
+                <div class="wishlist-img-box">
+                  <img src="./assets/bakery-berry-cake.webp" alt="Berry Tart" class="wishlist-img">
+                  <button type="button" class="wishlist-remove-btn" title="Remove" data-title="Artisan Organic Berry Tart">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </div>
+                <div class="wishlist-body">
+                  <span class="status-badge badge-ready" style="align-self: flex-start; margin-bottom: 6px;">Fresh Baked</span>
+                  <h4 class="wishlist-title">Organic Berry Tart</h4>
+                  <div class="wishlist-price">$9.80</div>
+                  <button type="button" class="btn-move-cart" data-title="Organic Berry Tart" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-cart-plus"></i> Move to Cart
+                  </button>
+                </div>
+              </div>
+
+</div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="addressesSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-location-dot"></i> Delivery Locations</h3>
+                <span class="dash-card-subtitle">Manage where your fresh refrigerated boxes are dropped</span>
+              </div>
+              <button type="button" class="btn-dash-primary" onclick="window.location.href='404.html'">
+                <i class="fa-solid fa-plus"></i> Add New Address
+              </button>
+            </div>
+
+<div class="address-grid">
+
+<div class="address-card default-address">
+                <div class="address-type-badge"><i class="fa-solid fa-house"></i> Home (Default)</div>
+                <h4 style="margin: 0 0 6px; font-weight: 800; color: var(--dash-dark);">Sarah Jenkins</h4>
+                <p style="font-size: 0.88rem; color: var(--dash-text); line-height: 1.6; margin: 0;">
+                  742 Evergreen Terrace, Apt 4B<br>
+                  Brooklyn, NY 11201<br>
+                  United States<br>
+                  <strong>Phone:</strong> +1 (555) 234-5678
+                </p>
+                <div class="address-actions">
+                  <button type="button" class="btn-table-action" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-pen"></i> Edit
+                  </button>
+                  <button type="button" class="btn-table-action btn-delete-address" style="color: #E53E3E;">
+                    <i class="fa-solid fa-trash"></i> Delete
+                  </button>
+                </div>
+              </div>
+
+<div class="address-card">
+                <div class="address-type-badge"><i class="fa-solid fa-building"></i> Office Hub</div>
+                <h4 style="margin: 0 0 6px; font-weight: 800; color: var(--dash-dark);">Sarah Jenkins (Tech Reception)</h4>
+                <p style="font-size: 0.88rem; color: var(--dash-text); line-height: 1.6; margin: 0;">
+                  350 5th Avenue, Suite 2100<br>
+                  New York, NY 10118<br>
+                  United States<br>
+                  <strong>Phone:</strong> +1 (555) 987-6543
+                </p>
+                <div class="address-actions">
+                  <button type="button" class="btn-table-action" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-pen"></i> Edit
+                  </button>
+                  <button type="button" class="btn-table-action btn-delete-address" style="color: #E53E3E;">
+                    <i class="fa-solid fa-trash"></i> Delete
+                  </button>
+                </div>
+              </div>
+
+<div class="address-card">
+                <div class="address-type-badge"><i class="fa-solid fa-tree"></i> Weekend Farm Cabin</div>
+                <h4 style="margin: 0 0 6px; font-weight: 800; color: var(--dash-dark);">Sarah Jenkins</h4>
+                <p style="font-size: 0.88rem; color: var(--dash-text); line-height: 1.6; margin: 0;">
+                  12 Old Mill Road<br>
+                  Hudson Valley, NY 12534<br>
+                  United States<br>
+                  <strong>Phone:</strong> +1 (555) 234-5678
+                </p>
+                <div class="address-actions">
+                  <button type="button" class="btn-table-action" onclick="window.location.href='404.html'">
+                    <i class="fa-solid fa-pen"></i> Edit
+                  </button>
+                  <button type="button" class="btn-table-action btn-delete-address" style="color: #E53E3E;">
+                    <i class="fa-solid fa-trash"></i> Delete
+                  </button>
+                </div>
+              </div>
+
+</div>
+          </div>
+
+</section>
+
+<section class="dash-section" id="supportSection">
+
+<div class="dash-grid-2col dash-support-grid">
+
+<div class="dash-card" data-dash-aos>
+              <div class="dash-card-header">
+                <div>
+                  <h3 class="dash-card-title"><i class="fa-solid fa-envelope-open-text"></i> Open a Support Ticket</h3>
+                  <span class="dash-card-subtitle">Our dedicated organic farm care team replies in under 4 hours</span>
+                </div>
+              </div>
+
+<form id="supportTicketForm" action="404.html" novalidate>
+                <div class="dashboard-form-grid" style="grid-template-columns: 1fr;">
+
+<div class="dashboard-form-group">
+                    <label class="dashboard-label" for="ticketSubject">Subject</label>
+                    <input type="text" id="ticketSubject" name="subject" class="dashboard-input" placeholder="e.g. Cold packaging inquiry or delivery note" required>
+                  </div>
+
+<div class="dashboard-form-group">
+                    <label class="dashboard-label" for="ticketCategory">Category</label>
+                    <select id="ticketCategory" name="category" class="dashboard-input" required>
+                      <option value="" disabled selected>Select category...</option>
+                      <option value="delivery">Active Delivery & Logistics</option>
+                      <option value="quality">Produce Freshness & Quality</option>
+                      <option value="subscription">Subscription Management</option>
+                      <option value="billing">Billing & Loyalty Points</option>
+                    </select>
+                  </div>
+
+<div class="dashboard-form-group">
+                    <label class="dashboard-label" for="ticketMessage">Message Details</label>
+                    <textarea id="ticketMessage" name="message" class="dashboard-input" placeholder="Describe your request in detail (min. 10 characters)..." required></textarea>
+                  </div>
+
+<button type="submit" class="btn-dash-primary" style="justify-content: center; height: 48px;">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Ticket
+                  </button>
+
+</div>
+              </form>
+            </div>
+
+<div class="dash-card" data-dash-aos data-delay="100">
+              <div class="dash-card-header">
+                <div>
+                  <h3 class="dash-card-title"><i class="fa-solid fa-circle-question"></i> Frequent Questions</h3>
+                  <span class="dash-card-subtitle">Quick answers to common questions about farm orders</span>
+                </div>
+              </div>
+
+<div class="faq-accordion">
+
+<div class="faq-item active">
+                  <div class="faq-header">
+                    <span>How do you guarantee perishable freshness during transit?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                  </div>
+                  <div class="faq-body">
+                    All deliveries travel in our specialized fleet of temperature-controlled refrigerated vans kept at a steady 3.8&deg;C to 4.2&deg;C, packaged with biodegradable wool insulation liners and food-grade freeze packs.
+                  </div>
+                </div>
+
+<div class="faq-item">
+                  <div class="faq-header">
+                    <span>What is your return & refund guarantee?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                  </div>
+                  <div class="faq-body">
+                    We offer a 100% Farm Fresh Guarantee. If any fruit or vegetable arrives damaged or sub-par, notify us within 48 hours for an instant full replacement or account credit.
+                  </div>
+                </div>
+
+<div class="faq-item">
+                  <div class="faq-header">
+                    <span>Can I skip a week or pause my subscription?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                  </div>
+                  <div class="faq-body">
+                    Yes! You can pause, skip, or modify your weekly delivery anytime before Tuesday 11:59 PM directly from your Orders or Account Settings tab without any cancellation fees.
+                  </div>
+                </div>
+
+<div class="faq-item">
+                  <div class="faq-header">
+                    <span>How do I redeem my loyalty reward points?</span>
+                    <i class="fa-solid fa-chevron-down faq-icon"></i>
+                  </div>
+                  <div class="faq-body">
+                    Go to the Loyalty & Rewards section above to copy your unlocked coupon codes or click "Redeem" on specific farm perks like avocado boxes and raw honey jars.
+                  </div>
+                </div>
+
+</div>
+            </div>
+
+</div>
+
+</section>
+
+<section class="dash-section" id="settingsSection">
+
+<div class="dash-card" data-dash-aos>
+            <div class="dash-card-header">
+              <div>
+                <h3 class="dash-card-title"><i class="fa-solid fa-user-gear"></i> Profile & Dietary Preferences</h3>
+                <span class="dash-card-subtitle">Manage personal information, dietary filters, and security credentials</span>
+              </div>
+            </div>
+
+<div class="profile-avatar-uploader">
+              <div class="profile-avatar-preview">
+                <img src="./assets/cta-man.webp" alt="Sarah Jenkins" id="profileAvatarPreview">
+              </div>
+              <div>
+                <h4 style="margin: 0 0 6px; font-weight: 800; color: var(--dash-dark);">Profile Photo</h4>
+                <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 10px;">Select a new JPG, PNG or WEBP avatar image to preview.</p>
+                <label for="profileAvatarInput" class="btn-dash-outline" style="cursor: pointer; display: inline-flex;">
+                  <i class="fa-solid fa-camera"></i> Upload New Picture
+                </label>
+                <input type="file" id="profileAvatarInput" accept="image/*" style="display: none;">
+              </div>
+            </div>
+
+<form id="profileSettingsForm" action="404.html" novalidate>
+              <div class="dashboard-form-grid">
+
+<div class="dashboard-form-group">
+                  <label class="dashboard-label" for="settingsName">Full Name</label>
+                  <input type="text" id="settingsName" name="name" class="dashboard-input" value="Sarah Jenkins" required>
+                </div>
+
+<div class="dashboard-form-group">
+                  <label class="dashboard-label" for="settingsEmail">Email Address</label>
+                  <input type="email" id="settingsEmail" name="email" class="dashboard-input" value="sarah.jenkins@example.com" required>
+                </div>
+
+<div class="dashboard-form-group">
+                  <label class="dashboard-label" for="settingsPhone">Phone Number</label>
+                  <input type="tel" id="settingsPhone" name="phone" class="dashboard-input" value="+1 (555) 234-5678">
+                </div>
+
+<div class="dashboard-form-group">
+                  <label class="dashboard-label" for="settingsBio">Delivery Special Instructions</label>
+                  <input type="text" id="settingsBio" name="bio" class="dashboard-input" value="Leave by side porch door behind the planter.">
+                </div>
+
+<div class="dashboard-form-group dashboard-form-full">
+                  <label class="dashboard-label">Dietary Preferences & Allergens Filter</label>
+                  <p style="font-size: 0.82rem; color: var(--dash-text-muted); margin: 0 0 8px;">
+                    We automatically tailor your recommended boxes to exclude unwanted ingredients.
+                  </p>
+                  <div class="dietary-tags-row">
+                    <label class="dietary-check-tag">
+                      <input type="checkbox" name="diet" value="organic" checked> 100% Certified Organic
+                    </label>
+                    <label class="dietary-check-tag">
+                      <input type="checkbox" name="diet" value="gluten-free" checked> Gluten-Free
+                    </label>
+                    <label class="dietary-check-tag">
+                      <input type="checkbox" name="diet" value="dairy-free"> Dairy-Free
+                    </label>
+                    <label class="dietary-check-tag">
+                      <input type="checkbox" name="diet" value="nut-free" checked> Nut-Free Safe
+                    </label>
+                    <label class="dietary-check-tag">
+                      <input type="checkbox" name="diet" value="vegan"> Vegan / Plant-Based
+                    </label>
+                    <label class="dietary-check-tag">
+                      <input type="checkbox" name="diet" value="keto"> Keto Friendly
+                    </label>
+                  </div>
+                </div>
+
+<div class="dashboard-form-full" style="margin-top: 10px;">
+                  <button type="submit" class="btn-dash-primary">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Profile Settings
+                  </button>
+                </div>
+
+</div>
+            </form>
+          </div>
+
+</section>
+
+</div>
+    </main>
+
+</div>
+
+<div class="dash-modal-overlay" id="logoutConfirmModal" role="dialog" aria-modal="true" aria-labelledby="logoutModalTitle">
+    <div class="dash-modal-card">
+      <div class="logout-icon-ring">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </div>
+      <h3 class="dash-modal-title" id="logoutModalTitle">Are you sure you want to log out?</h3>
+      <p class="dash-modal-desc">
+        You will be securely signed out of your customer account session. You can sign back in at any time.
+      </p>
+      <div class="dash-modal-actions">
+        <button type="button" class="btn-modal-cancel" id="cancelLogoutBtn">Cancel</button>
+        <button type="button" class="btn-modal-confirm" id="confirmLogoutBtn">Yes, Log Out</button>
+      </div>
+    </div>
+  </div>
+
+<div class="toast-container" id="dashToastContainer"></div>
+
+</body>
+</html>
+

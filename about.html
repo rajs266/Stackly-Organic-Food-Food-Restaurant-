@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Stackly Organic Food & Restaurant</title>
+  <meta name="description" content="Discover our journey, mission, sustainable farming practices, and expert team at Stackly Organic Food & Restaurant.">
+
+<link rel="icon" type="image/webp" href="./assets/top-logo.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="stackly-preloader" class="stackly-preloader">
+    <div class="preloader-bg-glow"></div>
+    <div class="preloader-floating-leaves">
+      <i class="fa-solid fa-leaf leaf-1"></i>
+      <i class="fa-solid fa-seedling leaf-2"></i>
+      <i class="fa-solid fa-leaf leaf-3"></i>
+      <i class="fa-solid fa-carrot leaf-4"></i>
+      <i class="fa-solid fa-apple-whole leaf-5"></i>
+    </div>
+    <div class="preloader-content">
+      <div class="preloader-icon-wrapper">
+        <div class="preloader-orbit-ring ring-outer"></div>
+        <div class="preloader-orbit-ring ring-inner"></div>
+        <div class="preloader-logo-box">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food" class="preloader-logo">
+        </div>
+        <div class="preloader-sprout-pulse" title="100% Organic">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+      </div>
+      <div class="preloader-brand-title">
+        <span class="brand-name">Stackly</span>
+        <span class="brand-tag">100% FRESH & ORGANIC</span>
+      </div>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar">
+          <div class="preloader-progress-fill" id="preloaderProgressFill"></div>
+        </div>
+        <div class="preloader-status-row">
+          <span class="preloader-status-text" id="preloaderStatusText">Harvesting fresh goodness...</span>
+          <span class="preloader-percent" id="preloaderPercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+<button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+<header class="header-area header-inner" id="siteHeader">
+
+<div class="top-bar">
+      <div class="container top-bar-container">
+        <div class="top-bar-left">
+          <span class="top-info"><i class="fa-solid fa-truck-fast"></i> Free express shipping on orders over $50</span>
+          <span class="top-divider">|</span>
+          <span class="top-info"><i class="fa-solid fa-leaf"></i> Stackly 100% Certified Organic Food & Restaurant</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="404.html" class="top-link"><i class="fa-solid fa-phone"></i> +1 (234) 567-890</a>
+          <span class="top-divider">|</span>
+          <span class="top-currency"><i class="fa-solid fa-globe"></i> English / USD</span>
+        </div>
+      </div>
+    </div>
+
+<nav class="navbar" id="navbar">
+      <div class="container nav-container">
+
+<a href="index.html" class="nav-brand" aria-label="Stackly Home">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food & Restaurant Logo" class="brand-logo">
+        </a>
+
+<ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link active">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="gallery.html" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a href="news.html" class="nav-link">News</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+<div class="nav-actions">
+
+<button class="action-btn" id="wishlistToggleBtn" aria-label="View Wishlist" title="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-count">0</span>
+          </button>
+
+<button class="action-btn cart-btn" id="cartToggleBtn" aria-label="Open Shopping Cart" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge-count cart-count">0</span>
+          </button>
+
+<a href="login.html" class="btn btn-primary nav-login-btn">Log in</a>
+
+<button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+</div>
+    </nav>
+  </header>
+
+<div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <a href="index.html" aria-label="Stackly Home">
+        <img src="./assets/logo.webp" alt="Organic Food" class="drawer-logo">
+      </a>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="login.html" class="btn btn-primary w-100 mb-3">Log in</a>
+      <div class="drawer-contact-info">
+        <p><i class="fa-solid fa-phone"></i> +1 (234) 567-890</p>
+        <p><i class="fa-solid fa-envelope"></i> info@stackly.com</p>
+      </div>
+    </div>
+  </aside>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Mini Cart">
+    <div class="cart-drawer-header">
+      <h3>My Cart (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close Cart">&times;</button>
+    </div>
+
+<div class="cart-shipping-notice">
+      <div class="shipping-text">
+        <i class="fa-solid fa-truck"></i>
+        <span id="shippingNoticeText">Add <strong>$50.00</strong> to unlock <strong>FREE Shipping!</strong></span>
+      </div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+<div class="cart-items-container" id="cartItemsList">
+      <div class="cart-empty-message" style="text-align: center; padding: 50px 15px; color: var(--color-text-muted);">
+        <i class="fa-solid fa-basket-shopping" style="font-size: 3.2rem; color: var(--color-border); margin-bottom: 14px; display: block;"></i>
+        <p style="font-weight: 700; font-size: 1.15rem; color: var(--color-dark); margin-bottom: 6px;">Your cart is currently empty</p>
+        <p style="font-size: 0.92rem;">Discover our fresh farm-picked organic foods!</p>
+      </div>
+    </div>
+
+<div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal:</span>
+        <span class="cart-subtotal-val" id="cartSubtotalAmount">$0.00</span>
+      </div>
+      <div class="cart-actions-row">
+        <a href="shop.html" class="btn btn-secondary w-100" id="viewCartBtn">View Shop</a>
+        <button class="btn btn-dark w-100" id="checkoutBtn" onclick="window.location.href='404.html'">Checkout Now</button>
+      </div>
+    </div>
+  </aside>
+
+<aside class="cart-drawer wishlist-drawer" id="wishlistDrawer" aria-label="Wishlist Drawer">
+    <div class="cart-drawer-header">
+      <h3>My Wishlist (<span id="wishlistDrawerCount">0</span>)</h3>
+      <button class="cart-close-btn" id="wishlistCloseBtn" aria-label="Close Wishlist">&times;</button>
+    </div>
+
+<div class="cart-items-container" id="wishlistItemsList">
+      <div class="wishlist-empty-state" style="text-align: center; padding: 50px 15px; color: var(--color-text-muted);">
+        <i class="fa-regular fa-heart" style="font-size: 3.2rem; color: var(--color-border); margin-bottom: 14px; display: block;"></i>
+        <p style="font-weight: 700; font-size: 1.15rem; color: var(--color-dark); margin-bottom: 6px;">Your Wishlist is Empty</p>
+        <p style="font-size: 0.92rem;">Explore products and tap the heart icon to save favorites!</p>
+      </div>
+    </div>
+
+<div class="cart-drawer-footer">
+      <div class="cart-actions-row">
+        <a href="shop.html" class="btn btn-secondary w-100" id="closeWishlistBtn">Explore Shop</a>
+        <button class="btn btn-primary w-100" id="addAllWishlistToCartBtn">Add All To Cart</button>
+      </div>
+    </div>
+  </aside>
+
+<div class="video-modal" id="videoModal">
+    <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+    <div class="video-modal-box">
+      <button class="video-close-btn" id="videoCloseBtn" aria-label="Close Video" title="Close Video">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="video-frame-container">
+        <video id="storyVideoPlayer" controls playsinline preload="metadata" muted>
+          <source src="./assets/story.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+    </div>
+  </div>
+
+<section class="page-banner" style="background-image: url('./assets/289c82b597f7b8b876eb37b920c0e9d4f4b0976e.webp');">
+    <div class="page-banner-overlay"></div>
+    <div class="container page-banner-container">
+      <div class="page-banner-content" data-aos="fade-right">
+        <span class="page-banner-tag">// WELCOME TO STACKLY</span>
+        <h1 class="page-banner-title">About Us</h1>
+        <div class="page-breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="divider">></span>
+          <span class="current">About Us</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="about-story-section">
+    <div class="container">
+      <div class="about-story-grid">
+
+<div class="about-images-wrap" data-aos="fade-right">
+          <div class="about-img-left">
+            <img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="Planting organic seedlings in living soil">
+          </div>
+          <div class="about-img-right">
+            <img src="./assets/392cde6e8251df9786c8e5772ef56301a664c2c0.webp" alt="Organic food specialist presenting fresh harvest">
+          </div>
+        </div>
+
+<div class="about-story-content" data-aos="fade-left">
+          <span class="section-subtitle">// HELLO FROM OUR TEAM</span>
+          <h2 class="section-heading">Trusted Organic<br>Food Store</h2>
+          <p class="about-lead-quote">
+            "At Organic Food, we believe true nourishment comes straight from healthy, chemical-free living soil."
+          </p>
+          <p class="about-body-text">
+            Founded with an unwavering commitment to regenerative agriculture, our cooperative delivers 100% certified organic farm-fresh crops, raw unheated honey, sun-ripened orchard fruits, and pure artisan pantry essentials directly to families. Every harvest complies with the strictest environmental and non-GMO quality standards.
+          </p>
+
+<div class="about-founder-block">
+            <div class="founder-info">
+              <h4>Harry Stevence</h4>
+              <span>CEO & Founder</span>
+            </div>
+            <div class="founder-signature">
+              Harry Stevence
+            </div>
+          </div>
+        </div>
+
+</div>
+    </div>
+  </section>
+
+<section class="why-choose-section">
+    <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+        <span class="section-subtitle">
+          <span class="sub-dash"></span> // FEATURES // <span class="sub-dash"></span>
+        </span>
+        <h2 class="section-heading">Why Choose Us.</h2>
+      </div>
+
+<div class="why-choose-grid">
+
+<div class="why-card" data-aos="fade-up" data-delay="50">
+          <div class="why-card-icon">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3 class="why-card-title">100% Guaranteed</h3>
+          <p class="why-card-text">
+            Third-party certified organic testing ensuring absolute absence of chemical fertilizers, harmful herbicides, or artificial enhancers.
+          </p>
+        </div>
+
+<div class="why-card" data-aos="fade-up" data-delay="150">
+          <div class="why-card-icon">
+            <i class="fa-solid fa-wheat-awn"></i>
+          </div>
+          <h3 class="why-card-title">Handmade Products</h3>
+          <p class="why-card-text">
+            Artisanal small-batch baking, raw cold-filtered honey harvest, and natural processing preserving unadulterated orchard flavors.
+          </p>
+        </div>
+
+<div class="why-card" data-aos="fade-up" data-delay="250">
+          <div class="why-card-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="why-card-title">Pesticide Free Goods</h3>
+          <p class="why-card-text">
+            Grown exclusively with bio-dynamic compost and natural rainwater irrigation, safeguarding surrounding pollinator sanctuaries.
+          </p>
+        </div>
+
+</div>
+
+</div>
+  </section>
+
+<section class="team-section">
+    <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+        <span class="section-subtitle">
+          <span class="sub-dash"></span> // EXPERT TEAM // <span class="sub-dash"></span>
+        </span>
+        <h2 class="section-heading">Team Member</h2>
+      </div>
+
+<div class="team-grid">
+
+<div class="team-card" data-aos="fade-up" data-delay="50">
+          <div class="team-img-box">
+            <img src="./assets/b1145d4f803f726db605a05253da82b3ad60de15.webp" alt="Kaustuv Vilton">
+          </div>
+          <div class="team-body">
+            <span class="team-role">// FARMER //</span>
+            <h3 class="team-name">Kaustuv Vilton</h3>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+<div class="team-card" data-aos="fade-up" data-delay="100">
+          <div class="team-img-box">
+            <img src="./assets/b92a602477637369f86b525ae65f768855b4cc25.webp" alt="Howard Miller">
+          </div>
+          <div class="team-body">
+            <span class="team-role">// CULTIVATOR //</span>
+            <h3 class="team-name">Howard Miller</h3>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+<div class="team-card" data-aos="fade-up" data-delay="150">
+          <div class="team-img-box">
+            <img src="./assets/3a2893237814bfc52fc8996e68a6adf693229854.webp" alt="Pauline Q. Wilson">
+          </div>
+          <div class="team-body">
+            <span class="team-role">// SPECIALIST //</span>
+            <h3 class="team-name">Pauline Q. Wilson</h3>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+<div class="team-card" data-aos="fade-up" data-delay="200">
+          <div class="team-img-box">
+            <img src="./assets/59efc846d4e04704c41f500e628fba794529f1ae.webp" alt="Thomas Bennett">
+          </div>
+          <div class="team-body">
+            <span class="team-role">// HARVEST LEAD //</span>
+            <h3 class="team-name">Thomas Bennett</h3>
+            <div class="team-socials">
+              <a href="404.html" class="team-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="404.html" class="team-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+</div>
+
+</div>
+  </section>
+
+<section class="testimonials-section section-padding bg-cream" id="testimonials">
+    <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+        <span class="section-subtitle">
+          <span class="sub-dash"></span> // FEEDBACKS // <span class="sub-dash"></span>
+        </span>
+        <h2 class="section-heading">Clients Feedbacks.</h2>
+      </div>
+
+<div class="testimonial-carousel-wrap" data-aos="fade-up" data-delay="100">
+        <div class="testimonial-track" id="testimonialTrack">
+
+<div class="marquee-group">
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/0cf1237c935a51a127dcbb0dbb3551b4e4e0b6d1.webp" alt="Caroline Q. William" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Organic Food has transformed our daily family meals. Every delivery is crisp, vibrant, and packed with authentic farm freshness."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Caroline Q. William</h4>
+                    <span class="client-role">Culinary Chef</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/392cde6e8251df9786c8e5772ef56301a664c2c0.webp" alt="David Henderson" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "The artisanal honey and freshly harvested veggies are unmatched. Knowing it's 100% non-GMO and pesticide-free gives me total peace of mind."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">David Henderson</h4>
+                    <span class="client-role">Nutritionist</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/3a2893237814bfc52fc8996e68a6adf693229854.webp" alt="Sophia Anderson" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Speedy doorstep dispatch and sustainable packaging. Truly the gold standard for pure organic groceries in modern wellness living."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Sophia Anderson</h4>
+                    <span class="client-role">Wellness Coach</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/59efc846d4e04704c41f500e628fba794529f1ae.webp" alt="Thomas Miller" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "As an agriculturist, I can attest to the genuine quality of their soil and farming standards. Truly ethical and harvested with deep passion."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Thomas Miller</h4>
+                    <span class="client-role">Agricultural Expert</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/b92a602477637369f86b525ae65f768855b4cc25.webp" alt="Lucas Bennett" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Incredible customer care and consistent seasonal produce across all orders. Their digital shopping process is delightfully seamless."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Lucas Bennett</h4>
+                    <span class="client-role">Loyal Customer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+            </div>
+
+<div class="marquee-group" aria-hidden="true">
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/0cf1237c935a51a127dcbb0dbb3551b4e4e0b6d1.webp" alt="Caroline Q. William" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Organic Food has transformed our daily family meals. Every delivery is crisp, vibrant, and packed with authentic farm freshness."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Caroline Q. William</h4>
+                    <span class="client-role">Culinary Chef</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/392cde6e8251df9786c8e5772ef56301a664c2c0.webp" alt="David Henderson" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "The artisanal honey and freshly harvested veggies are unmatched. Knowing it's 100% non-GMO and pesticide-free gives me total peace of mind."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">David Henderson</h4>
+                    <span class="client-role">Nutritionist</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/3a2893237814bfc52fc8996e68a6adf693229854.webp" alt="Sophia Anderson" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Speedy doorstep dispatch and sustainable packaging. Truly the gold standard for pure organic groceries in modern wellness living."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Sophia Anderson</h4>
+                    <span class="client-role">Wellness Coach</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/59efc846d4e04704c41f500e628fba794529f1ae.webp" alt="Thomas Miller" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "As an agriculturist, I can attest to the genuine quality of their soil and farming standards. Truly ethical and harvested with deep passion."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Thomas Miller</h4>
+                    <span class="client-role">Agricultural Expert</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/b92a602477637369f86b525ae65f768855b4cc25.webp" alt="Lucas Bennett" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Incredible customer care and consistent seasonal produce across all orders. Their digital shopping process is delightfully seamless."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Lucas Bennett</h4>
+                    <span class="client-role">Loyal Customer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+            </div>
+
+</div>
+      </div>
+
+</div>
+  </section>
+
+<section class="faq-section">
+    <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+        <span class="section-subtitle">
+          <span class="sub-dash"></span> // COMMON INQUIRIES // <span class="sub-dash"></span>
+        </span>
+        <h2 class="section-heading">Some Questions</h2>
+      </div>
+
+<div class="faq-grid">
+
+<div class="accordion-list" id="faqAccordion" data-aos="fade-right">
+
+<div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>What is Organic Food?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="accordion-body">
+              <p class="accordion-desc">
+                Organic food is cultivated without synthetic pesticides, petroleum-based fertilizers, bio-engineering, or ionizing radiation. Animals raised for organic meat, eggs, and dairy receive zero antibiotics or synthetic hormones.
+              </p>
+            </div>
+          </div>
+
+<div class="accordion-item active">
+            <button class="accordion-header" type="button" aria-expanded="true">
+              <span>How can I make natural food at my own kitchen?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-minus"></i></span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-content-flex">
+                <div class="accordion-video-thumb" id="faqVideoPlayTrigger" title="Watch kitchen preparation video">
+                  <img src="./assets/f945d70ed4463840a1d174c646cda5d73ba149a1.webp" alt="Video preview thumbnail">
+                  <span class="accordion-video-play"><i class="fa-solid fa-play"></i></span>
+                </div>
+                <p class="accordion-desc">
+                  Start with unadulterated whole ingredients: combine freshly picked organic seasonal greens, unrefined cold-pressed oils, and farm herbs. Preparing raw dressings and steaming roots preserves heat-sensitive botanical enzymes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+<div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>How can I pay for my order in store?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="accordion-body">
+              <p class="accordion-desc">
+                We accept all major credit and debit cards (Visa, MasterCard, Amex, Discover), Apple Pay, Google Pay, PayPal, and verified contactless mobile payments with encrypted 256-bit checkout security.
+              </p>
+            </div>
+          </div>
+
+<div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Return and refund policy</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="accordion-body">
+              <p class="accordion-desc">
+                If you are unsatisfied with the quality or freshness of any perishable item, contact us within 48 hours of doorstep delivery for a no-hassle immediate replacement or full card refund.
+              </p>
+            </div>
+          </div>
+
+<div class="accordion-item">
+            <button class="accordion-header" type="button" aria-expanded="false">
+              <span>Are my payments secure?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+            <div class="accordion-body">
+              <p class="accordion-desc">
+                Yes. All digital transactions are tokenized and protected through strict PCI-DSS compliant payment gateways with automated fraud prevention and zero storage of raw card digits.
+              </p>
+            </div>
+          </div>
+
+</div>
+
+<div class="faq-image-box" data-aos="fade-left">
+          <img src="./assets/faq-harvest-basket.webp" alt="Fresh Organic Vegetables & Orchard Fruits Basket" class="faq-harvest-img">
+        </div>
+
+</div>
+
+</div>
+  </section>
+
+<section class="inbox-banner-section" style="background-image: url('./assets/f945d70ed4463840a1d174c646cda5d73ba149a1.webp');">
+    <div class="inbox-banner-overlay"></div>
+    <div class="container inbox-banner-content" data-aos="fade-up">
+      <h2 class="inbox-banner-title">We make your inbox better</h2>
+      <p class="inbox-banner-desc">Sign up to receive farm-fresh seasonal harvest alerts, organic recipes, and exclusive store coupons.</p>
+
+<form class="inbox-form" id="aboutNewsletterForm" action="404.html" method="get">
+        <input type="email" name="email" class="inbox-input" placeholder="Enter your email address..." required aria-label="Email address">
+        <button type="submit" class="inbox-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+<section class="blog-section section-padding" id="blog">
+    <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+        <span class="section-subtitle">
+          <span class="sub-dash"></span> // FROM OUR BLOG // <span class="sub-dash"></span>
+        </span>
+        <h2 class="section-heading">Latest Blog</h2>
+      </div>
+
+<div class="blog-grid">
+
+<article class="blog-card" data-aos="fade-up" data-delay="50">
+          <div class="blog-img-box">
+            <img src="./assets/59ace3c2f68395fc23cd6e50a728d13c4cb744e0.webp" alt="Better Water Habits In Gardening" class="blog-img">
+            <span class="blog-category-badge">Gardening</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-user"></i> By Admin</span>
+              <span><i class="fa-regular fa-calendar"></i> 24 Sep 2026</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="news.html">Better Water Habits In Gardening For Healthier Crops</a>
+            </h3>
+            <p class="blog-excerpt">
+              Discover eco-friendly irrigation routines to conserve water while ensuring plant roots absorb balanced soil nutrients.
+            </p>
+            <a href="news.html" class="blog-link">
+              <span>Read More</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+<article class="blog-card" data-aos="fade-up" data-delay="150">
+          <div class="blog-img-box">
+            <img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="How To Plant A Tree In Garden" class="blog-img">
+            <span class="blog-category-badge">Planting</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-user"></i> By Organic Team</span>
+              <span><i class="fa-regular fa-calendar"></i> 20 Sep 2026</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="news.html">How To Plant A Tree In Garden: Complete Beginner Guide</a>
+            </h3>
+            <p class="blog-excerpt">
+              Step-by-step guidance on selecting rich organic compost, digging appropriate depths, and seasonal seedling protection.
+            </p>
+            <a href="news.html" class="blog-link">
+              <span>Read More</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+<article class="blog-card" data-aos="fade-up" data-delay="250">
+          <div class="blog-img-box">
+            <img src="./assets/7973c9d58ffd5e2129e123755edb8a3136111ad9.webp" alt="Organic Weed Control Methods" class="blog-img">
+            <span class="blog-category-badge">Farming</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fa-regular fa-user"></i> By Agro Expert</span>
+              <span><i class="fa-regular fa-calendar"></i> 16 Sep 2026</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="news.html">Natural Weed Control Methods That Protect Crop Ecology</a>
+            </h3>
+            <p class="blog-excerpt">
+              Eliminate invasive orchard weeds without chemical runoff through companion planting and organic pine-needle mulching.
+            </p>
+            <a href="news.html" class="blog-link">
+              <span>Read More</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+</div>
+
+</div>
+  </section>
+
+<section class="features-bar-section" data-aos="fade-up">
+    <div class="container">
+      <div class="features-bar-card">
+        <div class="features-grid">
+
+<div class="feature-item" data-aos="fade-up" data-delay="50">
+            <div class="feature-icon-box">
+              <img src="./assets/4415c7e226862246a8d600b7ab173fcc53d1ed32.webp" alt="Curated Products Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Curated Products</h4>
+              <p class="feature-sub">Provide Curated Products for all product over $100</p>
+            </div>
+          </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="100">
+            <div class="feature-icon-box">
+              <img src="./assets/f8b26d35d6c4910b86ff56b27888cf0033d6e6d3.webp" alt="Handmade Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Handmade</h4>
+              <p class="feature-sub">We ensure the product quality that is our main goal</p>
+            </div>
+          </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="150">
+            <div class="feature-icon-box">
+              <img src="./assets/e87d28baeef0352116b272077c8d9a2837d4f876.webp" alt="Natural Food Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Natural Food</h4>
+              <p class="feature-sub">Return product within 3 days for any product you buy</p>
+            </div>
+          </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="200">
+            <div class="feature-icon-box">
+              <img src="./assets/613ffe9233406a58339e4c9bdb68a2bdde71ee42.webp" alt="Free home delivery Icon" class="feature-icon-img">
+            </div>
+            <div class="feature-text">
+              <h4 class="feature-title">Free home delivery</h4>
+              <p class="feature-sub">We ensure the product quality that you can trust easily</p>
+            </div>
+          </div>
+
+</div>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer-area bg-cream" id="contact">
+    <div class="container footer-main">
+      <div class="footer-grid">
+
+<div class="footer-col col-brand" data-aos="fade-up" data-delay="50">
+          <a href="index.html" class="footer-logo-link" aria-label="Stackly Home">
+            <img src="./assets/logo.webp" alt="Stackly Organic Food & Restaurant Logo" class="footer-logo">
+          </a>
+          <p class="footer-about">
+            Stackly delivers 100% certified organic foods and fresh farm produce directly to your doorstep.
+          </p>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Brooklyn, New York, United States</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="404.html">+0123-456789</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              <a href="404.html">example@example.com</a>
+            </li>
+          </ul>
+          <div class="footer-social-row">
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+<div class="footer-col col-company" data-aos="fade-up" data-delay="100">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-services" data-aos="fade-up" data-delay="150">
+          <h4 class="footer-col-title">Services.</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Order tracking</a></li>
+            <li><a href="404.html">Home Delivery Info</a></li>
+            <li><a href="404.html">Wholesale Produce</a></li>
+            <li><a href="404.html">Farm Subscriptions</a></li>
+            <li><a href="404.html">Terms & Conditions</a></li>
+            <li><a href="404.html">Promotional Offers</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-care" data-aos="fade-up" data-delay="200">
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Help Center</a></li>
+            <li><a href="404.html">Returns & Refunds</a></li>
+            <li><a href="404.html">Shipping Policy</a></li>
+            <li><a href="404.html">Quality Guarantee</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Payment Security</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-newsletter" data-aos="fade-up" data-delay="250">
+          <h4 class="footer-col-title">Newsletter</h4>
+          <p class="newsletter-desc">
+            Subscribe to our weekly Newsletter and receive updates via email.
+          </p>
+          <form class="newsletter-form" id="newsletterForm" action="404.html" method="get">
+            <div class="newsletter-input-box">
+              <input type="email" id="newsletterEmail" name="email" placeholder="Email*" required>
+              <button type="submit" class="newsletter-submit-btn" aria-label="Subscribe to newsletter">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+
+<div class="we-accept-wrap">
+            <span class="we-accept-title">We Accept</span>
+            <div class="payment-accept-row">
+              <span class="payment-logo paypal"><i class="fa-brands fa-paypal"></i> PayPal</span>
+              <span class="payment-logo visa"><i class="fa-brands fa-cc-visa"></i> VISA</span>
+              <span class="payment-logo discover"><i class="fa-brands fa-cc-discover"></i> DISCOVER</span>
+              <span class="payment-logo mastercard"><i class="fa-brands fa-cc-mastercard"></i> MasterCard</span>
+              <span class="payment-logo amex"><i class="fa-brands fa-cc-amex"></i> AMEX</span>
+            </div>
+          </div>
+        </div>
+
+</div>
+    </div>
+
+<div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p class="copyright-text">
+          All Rights Reserved @ Company 2026
+        </p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Terms & Conditions</a>
+          <a href="404.html">Claim</a>
+          <a href="404.html">Privacy & Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+

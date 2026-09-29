@@ -1,0 +1,1736 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly - 100% Certified Healthy, Tasty, and Farm-Fresh Organic Food & Restaurant Provisions Delivered Directly To Your Home.">
+  <title>Stackly - Organic Food & Restaurant</title>
+
+<link rel="icon" type="image/webp" href="./assets/top-logo.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="stackly-preloader" class="stackly-preloader">
+    <div class="preloader-bg-glow"></div>
+    <div class="preloader-floating-leaves">
+      <i class="fa-solid fa-leaf leaf-1"></i>
+      <i class="fa-solid fa-seedling leaf-2"></i>
+      <i class="fa-solid fa-leaf leaf-3"></i>
+      <i class="fa-solid fa-carrot leaf-4"></i>
+      <i class="fa-solid fa-apple-whole leaf-5"></i>
+    </div>
+    <div class="preloader-content">
+      <div class="preloader-icon-wrapper">
+        <div class="preloader-orbit-ring ring-outer"></div>
+        <div class="preloader-orbit-ring ring-inner"></div>
+        <div class="preloader-logo-box">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food" class="preloader-logo">
+        </div>
+        <div class="preloader-sprout-pulse" title="100% Organic">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+      </div>
+      <div class="preloader-brand-title">
+        <span class="brand-name">Stackly</span>
+        <span class="brand-tag">100% FRESH & ORGANIC</span>
+      </div>
+      <div class="preloader-progress-container">
+        <div class="preloader-progress-bar">
+          <div class="preloader-progress-fill" id="preloaderProgressFill"></div>
+        </div>
+        <div class="preloader-status-row">
+          <span class="preloader-status-text" id="preloaderStatusText">Harvesting fresh goodness...</span>
+          <span class="preloader-percent" id="preloaderPercent">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<header class="header-area">
+    <div class="top-bar">
+      <div class="container top-bar-container">
+        <div class="top-bar-left">
+          <span class="top-info"><i class="fa-solid fa-truck-fast"></i> Free express shipping on orders over $50</span>
+          <span class="top-divider">|</span>
+          <span class="top-info"><i class="fa-solid fa-leaf"></i> Stackly 100% Certified Organic Food & Restaurant</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="404.html" class="top-link"><i class="fa-solid fa-phone"></i> +1 (234) 567-890</a>
+          <span class="top-divider">|</span>
+          <span class="top-currency"><i class="fa-solid fa-globe"></i> English / USD</span>
+        </div>
+      </div>
+    </div>
+
+<nav class="navbar" id="navbar">
+      <div class="container nav-container">
+
+<a href="index.html" class="nav-brand" aria-label="Stackly Home">
+          <img src="./assets/logo.webp" alt="Stackly Organic Food & Restaurant" class="brand-logo">
+        </a>
+
+<ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a href="gallery.html" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a href="news.html" class="nav-link">News</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+
+<div class="nav-actions">
+
+<button class="action-btn" id="wishlistToggleBtn" aria-label="View Wishlist" title="Wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span class="badge-count wishlist-count">0</span>
+          </button>
+
+<button class="action-btn cart-btn" id="cartToggleBtn" aria-label="Open Shopping Cart" title="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge-count cart-count">0</span>
+          </button>
+
+<a href="login.html" class="btn btn-primary nav-login-btn">Log in</a>
+
+<button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+</div>
+    </nav>
+  </header>
+
+<div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <a href="index.html" aria-label="Stackly Home">
+        <img src="./assets/logo.webp" alt="Stackly Organic Food & Restaurant" class="drawer-logo">
+      </a>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="login.html" class="btn btn-primary w-100 mb-3">Log in</a>
+      <div class="drawer-contact-info">
+        <p><i class="fa-solid fa-phone"></i> +1 (234) 567-890</p>
+        <p><i class="fa-solid fa-envelope"></i> info@stackly.com</p>
+      </div>
+    </div>
+  </aside>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Mini Cart">
+    <div class="cart-drawer-header">
+      <h3>My Cart (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close Cart">&times;</button>
+    </div>
+
+<div class="cart-shipping-notice">
+      <div class="shipping-text">
+        <i class="fa-solid fa-truck"></i>
+        <span id="shippingNoticeText">Add <strong>$50.00</strong> to unlock <strong>FREE Shipping!</strong></span>
+      </div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+<div class="cart-items-container" id="cartItemsList">
+      <div class="cart-empty-message" style="text-align: center; padding: 50px 15px; color: var(--color-text-muted);">
+        <i class="fa-solid fa-basket-shopping" style="font-size: 3.2rem; color: var(--color-border); margin-bottom: 14px; display: block;"></i>
+        <p style="font-weight: 700; font-size: 1.15rem; color: var(--color-dark); margin-bottom: 6px;">Your cart is currently empty</p>
+        <p style="font-size: 0.92rem;">Discover our fresh farm-picked organic foods!</p>
+      </div>
+    </div>
+
+<div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal:</span>
+        <span class="cart-subtotal-val" id="cartSubtotalAmount">$0.00</span>
+      </div>
+      <div class="cart-actions-row">
+        <a href="404.html" class="btn btn-secondary w-100" id="viewCartBtn">View Cart</a>
+        <button class="btn btn-dark w-100" id="checkoutBtn" onclick="window.location.href='404.html'">Checkout Now</button>
+      </div>
+    </div>
+  </aside>
+
+<aside class="cart-drawer wishlist-drawer" id="wishlistDrawer" aria-label="Wishlist Drawer">
+    <div class="cart-drawer-header">
+      <h3>My Wishlist (<span id="wishlistDrawerCount">0</span>)</h3>
+      <button class="cart-close-btn" id="wishlistCloseBtn" aria-label="Close Wishlist">&times;</button>
+    </div>
+
+<div class="cart-items-container" id="wishlistItemsList">
+      <div class="wishlist-empty-state" style="text-align: center; padding: 50px 15px; color: var(--color-text-muted);">
+        <i class="fa-regular fa-heart" style="font-size: 3.2rem; color: var(--color-border); margin-bottom: 14px; display: block;"></i>
+        <p style="font-weight: 700; font-size: 1.15rem; color: var(--color-dark); margin-bottom: 6px;">Your Wishlist is Empty</p>
+        <p style="font-size: 0.92rem;">Explore products and tap the heart icon to save favorites!</p>
+      </div>
+    </div>
+
+<div class="cart-drawer-footer">
+      <div class="cart-actions-row">
+        <a href="shop.html" class="btn btn-secondary w-100" id="closeWishlistBtn">Explore Products</a>
+        <button class="btn btn-primary w-100" id="addAllWishlistToCartBtn">Add All To Cart</button>
+      </div>
+    </div>
+  </aside>
+
+<div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search organic fruits, vegetables, honey, teas..." autocomplete="off">
+        <button class="search-close-btn" id="searchCloseBtn">&times;</button>
+      </div>
+      <div class="search-suggestions">
+        <span class="suggestion-label">Popular Searches:</span>
+        <span class="suggestion-tag">Organic Honey</span>
+        <span class="suggestion-tag">Fresh Kiwi</span>
+        <span class="suggestion-tag">Broccoli</span>
+        <span class="suggestion-tag">Berries</span>
+      </div>
+    </div>
+  </div>
+
+<main>
+
+<section class="hero-section" id="hero">
+      <div class="hero-slider-wrapper">
+
+<div class="hero-slide active" data-slide="0">
+          <div class="hero-media-bg">
+            <img src="./assets/Home hero.webp" alt="Tasty & Healthy Organic Food - Farm Fresh Produce" class="hero-bg-img hero-img-slide-1">
+          </div>
+          <div class="container hero-container">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <i class="fa-solid fa-leaf"></i>
+                <span>100% genuine Products</span>
+              </div>
+              <h1 class="hero-title">Tasty & Healthy<br>Organic Food</h1>
+              <p class="hero-desc">
+                Organic foods are wholesome, nutritious, and free from harmful chemicals.
+                Directly harvested from certified eco-friendly farms to your table.
+              </p>
+              <div class="hero-btn-group">
+                <a href="#products" class="btn btn-primary btn-lg">
+                  <span>Explore Products</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<div class="hero-slide" data-slide="1">
+          <div class="hero-media-bg">
+            <img src="./assets/hero-slide-2.webp" alt="Pure Harvest Crisp Farm Vegetables Basket" class="hero-bg-img hero-img-slide-2">
+          </div>
+          <div class="container hero-container">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <i class="fa-solid fa-seedling"></i>
+                <span>Fresh From Nature</span>
+              </div>
+              <h1 class="hero-title">Pure Harvest<br>Crisp Vegetables</h1>
+              <p class="hero-desc">
+                Crisp, garden-fresh vegetables and antioxidant-rich greens picked at the peak of flavor.
+                Boost your immune system with honest nature's best.
+              </p>
+              <div class="hero-btn-group">
+                <a href="#products" class="btn btn-primary btn-lg">
+                  <span>Explore Harvest</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<div class="hero-slide" data-slide="2">
+          <div class="hero-media-bg">
+            <img src="./assets/hero-slide-3.webp" alt="100% Raw Honey & Artisanal Orchard Foods" class="hero-bg-img hero-img-slide-3">
+          </div>
+          <div class="container hero-container">
+            <div class="hero-content">
+              <div class="hero-badge">
+                <i class="fa-solid fa-apple-whole"></i>
+                <span>Natural & Eco-Friendly</span>
+              </div>
+              <h1 class="hero-title">100% Raw Honey<br>& Artisanal Foods</h1>
+              <p class="hero-desc">
+                Indulge in untreated raw honey combos, sun-ripened orchard fruits, and healthy lifestyle essentials
+                delivered with guaranteed zero preservatives.
+              </p>
+              <div class="hero-btn-group">
+                <a href="#deal" class="btn btn-primary btn-lg">
+                  <span>Get Combo Deal</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+</div>
+
+<div class="carousel-dots-wrap" id="heroDots">
+        <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+<section class="gallery-section section-padding bg-cream" id="gallery">
+      <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+          <span class="section-subtitle">
+            <span class="sub-dash"></span> Gallery <span class="sub-dash"></span>
+          </span>
+          <h2 class="section-heading">We Have Done.</h2>
+        </div>
+
+<div class="gallery-carousel-wrap" data-aos="fade-up" data-delay="100">
+          <div class="gallery-track" id="galleryTrack">
+
+<div class="marquee-group">
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="Hands planting sapling in organic soil">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Planting</span>
+                    <h4 class="gallery-card-title">Seedling Cultivation</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/59ace3c2f68395fc23cd6e50a728d13c4cb744e0.webp" alt="Harvesting red ripe tomatoes in wicker basket">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Harvesting</span>
+                    <h4 class="gallery-card-title">Fresh Tomato Picking</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/15d6b7d2343da02b1cf64778e79ccb75e0f18b66.webp" alt="Transplanting organic seedlings in greenhouse">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Cultivation</span>
+                    <h4 class="gallery-card-title">Soil Preparation</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/7973c9d58ffd5e2129e123755edb8a3136111ad9.webp" alt="Irrigation and watering green crops">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Irrigation</span>
+                    <h4 class="gallery-card-title">Natural Watering</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/b1145d4f803f726db605a05253da82b3ad60de15.webp" alt="Senior organic farmer proudly presenting harvested crate">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Farming</span>
+                    <h4 class="gallery-card-title">Farm Fresh Harvest</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Greenhouse nursery with healthy potted herbs">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Nursery</span>
+                    <h4 class="gallery-card-title">Organic Greenery</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<div class="marquee-group" aria-hidden="true">
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="Hands planting sapling in organic soil">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Planting</span>
+                    <h4 class="gallery-card-title">Seedling Cultivation</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/59ace3c2f68395fc23cd6e50a728d13c4cb744e0.webp" alt="Harvesting red ripe tomatoes in wicker basket">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Harvesting</span>
+                    <h4 class="gallery-card-title">Fresh Tomato Picking</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/15d6b7d2343da02b1cf64778e79ccb75e0f18b66.webp" alt="Transplanting organic seedlings in greenhouse">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Cultivation</span>
+                    <h4 class="gallery-card-title">Soil Preparation</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/7973c9d58ffd5e2129e123755edb8a3136111ad9.webp" alt="Irrigation and watering green crops">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Irrigation</span>
+                    <h4 class="gallery-card-title">Natural Watering</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/b1145d4f803f726db605a05253da82b3ad60de15.webp" alt="Senior organic farmer proudly presenting harvested crate">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Farming</span>
+                    <h4 class="gallery-card-title">Farm Fresh Harvest</h4>
+                  </div>
+                </div>
+              </div>
+
+<div class="gallery-card">
+                <div class="gallery-img-box">
+                  <img src="./assets/7297c707feb89a7dad0600eac211cbce5af329d8.webp" alt="Greenhouse nursery with healthy potted herbs">
+                  <div class="gallery-overlay">
+                    <span class="gallery-tag">Nursery</span>
+                    <h4 class="gallery-card-title">Organic Greenery</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+</div>
+        </div>
+
+</div>
+    </section>
+
+<section class="products-section section-padding" id="products">
+      <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+          <span class="section-subtitle">
+            <span class="sub-dash"></span> Organic Shop <span class="sub-dash"></span>
+          </span>
+          <h2 class="section-heading">Our Products</h2>
+
+<div class="category-tabs" id="productFilterTabs">
+            <button class="filter-tab active" data-filter="all">All</button>
+            <button class="filter-tab" data-filter="fruit">Fresh Fruit</button>
+            <button class="filter-tab" data-filter="vegetable">Fresh Vegetables</button>
+            <button class="filter-tab" data-filter="bakery">Bread & Cake</button>
+            <button class="filter-tab" data-filter="meat">Fish & Meat</button>
+          </div>
+        </div>
+
+<div class="products-grid" id="mainProductsGrid">
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="50">
+            <div class="product-badge badge-sale">-20%</div>
+            <div class="product-img-box">
+              <img src="./assets/4a40f7dfa68f5920d1fa7aba2bda0f7885d94b2f.webp" alt="Fresh Citrus & Tomato" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Fresh Citrus & Tomato" data-price="15.00" data-img="./assets/4a40f7dfa68f5920d1fa7aba2bda0f7885d94b2f.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Fresh Citrus & Tomato" data-price="15.00" data-old="19.00" data-img="./assets/4a40f7dfa68f5920d1fa7aba2bda0f7885d94b2f.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Fresh Citrus & Tomato" data-price="15.00" data-img="./assets/4a40f7dfa68f5920d1fa7aba2bda0f7885d94b2f.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Fresh Citrus & Tomato</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$15.00</span>
+                <span class="price-old">$19.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="vegetable" data-aos="fade-up" data-delay="100">
+            <div class="product-badge badge-organic">Organic</div>
+            <div class="product-img-box">
+              <img src="./assets/11de3f213d2ea09d43d53e37bc7c7e3a73d234f0.webp" alt="Fresh Green Broccoli" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Fresh Green Broccoli" data-price="12.00" data-img="./assets/11de3f213d2ea09d43d53e37bc7c7e3a73d234f0.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Fresh Green Broccoli" data-price="12.00" data-old="15.00" data-img="./assets/11de3f213d2ea09d43d53e37bc7c7e3a73d234f0.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Fresh Green Broccoli" data-price="12.00" data-img="./assets/11de3f213d2ea09d43d53e37bc7c7e3a73d234f0.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Fresh Green Broccoli</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$12.00</span>
+                <span class="price-old">$15.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="150">
+            <div class="product-badge badge-sale">Sale</div>
+            <div class="product-img-box">
+              <img src="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" alt="Fresh Forest Berries" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Fresh Forest Berries" data-price="20.00" data-img="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Fresh Forest Berries" data-price="20.00" data-old="25.00" data-img="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Fresh Forest Berries" data-price="20.00" data-img="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Fresh Forest Berries</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$20.00</span>
+                <span class="price-old">$25.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="vegetable" data-aos="fade-up" data-delay="200">
+            <div class="product-badge badge-fresh">Fresh</div>
+            <div class="product-img-box">
+              <img src="./assets/2f669b7c0c9c1ccbf1cb04fc9a573ce7204ae3c4.webp" alt="Organic Red Onions" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Organic Red Onions" data-price="8.00" data-img="./assets/2f669b7c0c9c1ccbf1cb04fc9a573ce7204ae3c4.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Organic Red Onions" data-price="8.00" data-old="10.00" data-img="./assets/2f669b7c0c9c1ccbf1cb04fc9a573ce7204ae3c4.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Organic Red Onions" data-price="8.00" data-img="./assets/2f669b7c0c9c1ccbf1cb04fc9a573ce7204ae3c4.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Organic Red Onions</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$8.00</span>
+                <span class="price-old">$10.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="50">
+            <div class="product-badge badge-new">New</div>
+            <div class="product-img-box">
+              <img src="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" alt="Fresh Green Kiwi" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Fresh Green Kiwi" data-price="14.00" data-img="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Fresh Green Kiwi" data-price="14.00" data-old="17.00" data-img="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Fresh Green Kiwi" data-price="14.00" data-img="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Fresh Green Kiwi</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$14.00</span>
+                <span class="price-old">$17.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="vegetable" data-aos="fade-up" data-delay="100">
+            <div class="product-badge badge-organic">Organic</div>
+            <div class="product-img-box">
+              <img src="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" alt="Wild Forest Mushrooms" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Wild Forest Mushrooms" data-price="16.00" data-img="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Wild Forest Mushrooms" data-price="16.00" data-old="20.00" data-img="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Wild Forest Mushrooms" data-price="16.00" data-img="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Wild Forest Mushrooms</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$16.00</span>
+                <span class="price-old">$20.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="150">
+            <div class="product-badge badge-fresh">Fresh</div>
+            <div class="product-img-box">
+              <img src="./assets/b85433c30be358632bedd75b2c1a36e041ccd4f5.webp" alt="Sweet Mangosteen" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Sweet Mangosteen" data-price="22.00" data-img="./assets/b85433c30be358632bedd75b2c1a36e041ccd4f5.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Sweet Mangosteen" data-price="22.00" data-old="26.00" data-img="./assets/b85433c30be358632bedd75b2c1a36e041ccd4f5.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Sweet Mangosteen" data-price="22.00" data-img="./assets/b85433c30be358632bedd75b2c1a36e041ccd4f5.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Sweet Mangosteen</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$22.00</span>
+                <span class="price-old">$26.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="200">
+            <div class="product-badge badge-sale">Sale</div>
+            <div class="product-img-box">
+              <img src="./assets/604fd84bd42484acca78961c57e789e4f1f6294c.webp" alt="Golden Kiwi Fruit" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Golden Kiwi Fruit" data-price="18.00" data-img="./assets/604fd84bd42484acca78961c57e789e4f1f6294c.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Golden Kiwi Fruit" data-price="18.00" data-old="22.00" data-img="./assets/604fd84bd42484acca78961c57e789e4f1f6294c.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Golden Kiwi Fruit" data-price="18.00" data-img="./assets/604fd84bd42484acca78961c57e789e4f1f6294c.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Golden Kiwi Fruit</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$18.00</span>
+                <span class="price-old">$22.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card cover-img-card" data-category="bakery" data-aos="fade-up" data-delay="50">
+            <div class="product-badge badge-organic">Fresh Baked</div>
+            <div class="product-img-box">
+              <img src="./assets/bakery-artisan-bread.webp" alt="Artisan Sourdough Loaf" class="product-img cover-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Artisan Sourdough Loaf" data-price="8.50" data-img="./assets/bakery-artisan-bread.webp" title="Add to Wishlist" aria-label="Add to Wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="card-action-btn quick-view-btn" data-title="Artisan Sourdough Loaf" data-price="8.50" data-old="10.50" data-img="./assets/bakery-artisan-bread.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Artisan Sourdough Loaf" data-price="8.50" data-img="./assets/bakery-artisan-bread.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Artisan Sourdough Loaf</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$8.50</span>
+                <span class="price-old">$10.50</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card cover-img-card" data-category="bakery" data-aos="fade-up" data-delay="100">
+            <div class="product-badge badge-fresh">Chef Special</div>
+            <div class="product-img-box">
+              <img src="./assets/bakery-berry-cake.webp" alt="Organic Berry Sponge Cake" class="product-img cover-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Organic Berry Sponge Cake" data-price="24.00" data-img="./assets/bakery-berry-cake.webp" title="Add to Wishlist" aria-label="Add to Wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="card-action-btn quick-view-btn" data-title="Organic Berry Sponge Cake" data-price="24.00" data-old="28.00" data-img="./assets/bakery-berry-cake.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Organic Berry Sponge Cake" data-price="24.00" data-img="./assets/bakery-berry-cake.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Organic Berry Sponge Cake</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$24.00</span>
+                <span class="price-old">$28.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card cover-img-card" data-category="bakery" data-aos="fade-up" data-delay="150">
+            <div class="product-badge badge-sale">-25%</div>
+            <div class="product-img-box">
+              <img src="./assets/bakery-croissant.webp" alt="Flaky Butter Croissant" class="product-img cover-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Flaky Butter Croissant" data-price="9.00" data-img="./assets/bakery-croissant.webp" title="Add to Wishlist" aria-label="Add to Wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="card-action-btn quick-view-btn" data-title="Flaky Butter Croissant" data-price="9.00" data-old="12.00" data-img="./assets/bakery-croissant.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Flaky Butter Croissant" data-price="9.00" data-img="./assets/bakery-croissant.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Flaky Butter Croissant (3 Pcs)</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$9.00</span>
+                <span class="price-old">$12.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card cover-img-card" data-category="meat" data-aos="fade-up" data-delay="50">
+            <div class="product-badge badge-fresh">Wild Catch</div>
+            <div class="product-img-box">
+              <img src="./assets/meat-salmon-fillet.webp" alt="Wild Atlantic Salmon Fillet" class="product-img cover-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Wild Atlantic Salmon Fillet" data-price="26.00" data-img="./assets/meat-salmon-fillet.webp" title="Add to Wishlist" aria-label="Add to Wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="card-action-btn quick-view-btn" data-title="Wild Atlantic Salmon Fillet" data-price="26.00" data-old="32.00" data-img="./assets/meat-salmon-fillet.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Wild Atlantic Salmon Fillet" data-price="26.00" data-img="./assets/meat-salmon-fillet.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Wild Atlantic Salmon Fillet</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$26.00</span>
+                <span class="price-old">$32.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card cover-img-card" data-category="meat" data-aos="fade-up" data-delay="100">
+            <div class="product-badge badge-organic">100% Organic</div>
+            <div class="product-img-box">
+              <img src="./assets/meat-beef-steak.webp" alt="Grass-Fed Beef Ribeye Steak" class="product-img cover-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Grass-Fed Beef Ribeye Steak" data-price="34.00" data-img="./assets/meat-beef-steak.webp" title="Add to Wishlist" aria-label="Add to Wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="card-action-btn quick-view-btn" data-title="Grass-Fed Beef Ribeye Steak" data-price="34.00" data-old="39.00" data-img="./assets/meat-beef-steak.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Grass-Fed Beef Ribeye Steak" data-price="34.00" data-img="./assets/meat-beef-steak.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Grass-Fed Beef Ribeye Steak</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$34.00</span>
+                <span class="price-old">$39.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card cover-img-card" data-category="meat" data-aos="fade-up" data-delay="150">
+            <div class="product-badge badge-fresh">Fresh</div>
+            <div class="product-img-box">
+              <img src="./assets/meat-fresh-prawns.webp" alt="Farm-Fresh King Ocean Prawns" class="product-img cover-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Farm-Fresh King Ocean Prawns" data-price="28.00" data-img="./assets/meat-fresh-prawns.webp" title="Add to Wishlist" aria-label="Add to Wishlist">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="card-action-btn quick-view-btn" data-title="Farm-Fresh King Ocean Prawns" data-price="28.00" data-old="34.00" data-img="./assets/meat-fresh-prawns.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Farm-Fresh King Ocean Prawns" data-price="28.00" data-img="./assets/meat-fresh-prawns.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Farm-Fresh King Ocean Prawns</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$28.00</span>
+                <span class="price-old">$34.00</span>
+              </div>
+            </div>
+          </article>
+
+</div>
+
+<div class="carousel-dots-wrap" id="productDots">
+          <button class="carousel-dot active" data-page="0" aria-label="Page 1 (Products 1-8)"></button>
+          <button class="carousel-dot" data-page="1" aria-label="Page 2 (Products 9-14)"></button>
+        </div>
+
+</div>
+    </section>
+
+<section class="deal-banner-section" id="deal">
+      <div class="container">
+        <div class="deal-card-wrapper bg-cream">
+          <div class="deal-grid">
+
+<div class="deal-img-col" data-aos="slide-right">
+              <div class="honey-img-box">
+                <img src="./assets/bd7974a24aa4934f633a8093aa6f5dea43b91737.webp" alt="Original Stock Honey Combo Package Jar with Dipper" class="honey-jar-img">
+              </div>
+            </div>
+
+<div class="deal-content-col" data-aos="slide-left">
+              <span class="section-subtitle">
+                <span class="sub-dash"></span> Special Offer <span class="sub-dash"></span>
+              </span>
+              <h2 class="deal-heading">Original Stock Honey<br>Combo Package</h2>
+              <p class="deal-desc">
+                Harvested from wild mountain beehives with traditional cold-pressing methods.
+                Rich in enzymes, floral aroma, and natural antibacterial properties. Limited batch promo!
+              </p>
+
+<div class="countdown-timer-wrap" id="honeyCountdown">
+                <div class="timer-box">
+                  <span class="timer-num" id="timerDays">00</span>
+                  <span class="timer-label">Days</span>
+                </div>
+                <div class="timer-box">
+                  <span class="timer-num" id="timerHours">12</span>
+                  <span class="timer-label">Hours</span>
+                </div>
+                <div class="timer-box">
+                  <span class="timer-num" id="timerMins">30</span>
+                  <span class="timer-label">Mins</span>
+                </div>
+                <div class="timer-box">
+                  <span class="timer-num" id="timerSecs">15</span>
+                  <span class="timer-label">Secs</span>
+                </div>
+              </div>
+
+<div class="deal-action-wrap">
+                <a href="#featured" class="btn btn-primary btn-lg">
+                  <span>Shop Now</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <div class="deal-price-highlight">
+                  <span class="deal-save">Save 35%</span>
+                  <span class="deal-price-now">$29.99</span>
+                  <span class="deal-price-was">$45.00</span>
+                </div>
+              </div>
+
+</div>
+
+</div>
+        </div>
+      </div>
+    </section>
+
+<section class="featured-section section-padding" id="featured">
+      <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+          <span class="section-subtitle">
+            <span class="sub-dash"></span> Best Picks <span class="sub-dash"></span>
+          </span>
+          <h2 class="section-heading">Featured Products</h2>
+        </div>
+
+<div class="products-grid">
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="50">
+            <div class="product-badge badge-sale">-15%</div>
+            <div class="product-img-box">
+              <img src="./assets/ebb3ee0e38c322249cabfc9da05e73bf08baef8a.webp" alt="Sweet Organic Peaches" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Sweet Organic Peaches" data-price="15.00" data-img="./assets/ebb3ee0e38c322249cabfc9da05e73bf08baef8a.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Sweet Organic Peaches" data-price="15.00" data-old="18.00" data-img="./assets/ebb3ee0e38c322249cabfc9da05e73bf08baef8a.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Sweet Organic Peaches" data-price="15.00" data-img="./assets/ebb3ee0e38c322249cabfc9da05e73bf08baef8a.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Sweet Organic Peaches</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$15.00</span>
+                <span class="price-old">$18.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="100">
+            <div class="product-badge badge-organic">Organic</div>
+            <div class="product-img-box">
+              <img src="./assets/97d9e76466a963cddac8c1788a5210f2d1223168.webp" alt="Fresh Ripe Papaya" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Fresh Ripe Papaya" data-price="12.00" data-img="./assets/97d9e76466a963cddac8c1788a5210f2d1223168.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Fresh Ripe Papaya" data-price="12.00" data-old="15.00" data-img="./assets/97d9e76466a963cddac8c1788a5210f2d1223168.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Fresh Ripe Papaya" data-price="12.00" data-img="./assets/97d9e76466a963cddac8c1788a5210f2d1223168.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Fresh Ripe Papaya</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$12.00</span>
+                <span class="price-old">$15.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="150">
+            <div class="product-badge badge-new">New</div>
+            <div class="product-img-box">
+              <img src="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" alt="Fresh Mixed Berries" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Fresh Mixed Berries" data-price="20.00" data-img="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Fresh Mixed Berries" data-price="20.00" data-old="24.00" data-img="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Fresh Mixed Berries" data-price="20.00" data-img="./assets/cd6269853cfabad52c45e660143eb9dda79f16d1.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Fresh Mixed Berries</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$20.00</span>
+                <span class="price-old">$24.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="200">
+            <div class="product-badge badge-sale">-10%</div>
+            <div class="product-img-box">
+              <img src="./assets/8523fc6355b95265694c77fa4a51789e987a8197.webp" alt="Organic Hass Avocado" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Organic Hass Avocado" data-price="14.00" data-img="./assets/8523fc6355b95265694c77fa4a51789e987a8197.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Organic Hass Avocado" data-price="14.00" data-old="16.00" data-img="./assets/8523fc6355b95265694c77fa4a51789e987a8197.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Organic Hass Avocado" data-price="14.00" data-img="./assets/8523fc6355b95265694c77fa4a51789e987a8197.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Organic Hass Avocado</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$14.00</span>
+                <span class="price-old">$16.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="50">
+            <div class="product-badge badge-hot">Hot</div>
+            <div class="product-img-box">
+              <img src="./assets/2464d93919359e3964127a16895121049df5acbc.webp" alt="Tropical Fresh Mango" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Tropical Fresh Mango" data-price="18.00" data-img="./assets/2464d93919359e3964127a16895121049df5acbc.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Tropical Fresh Mango" data-price="18.00" data-old="22.00" data-img="./assets/2464d93919359e3964127a16895121049df5acbc.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Tropical Fresh Mango" data-price="18.00" data-img="./assets/2464d93919359e3964127a16895121049df5acbc.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Tropical Fresh Mango</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$18.00</span>
+                <span class="price-old">$22.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="100">
+            <div class="product-badge badge-fresh">Fresh</div>
+            <div class="product-img-box">
+              <img src="./assets/e8e3423a78a0a0f8433118ff898db32e23c0f11d.webp" alt="Golden Bartlett Pears" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Golden Bartlett Pears" data-price="13.00" data-img="./assets/e8e3423a78a0a0f8433118ff898db32e23c0f11d.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Golden Bartlett Pears" data-price="13.00" data-old="16.00" data-img="./assets/e8e3423a78a0a0f8433118ff898db32e23c0f11d.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Golden Bartlett Pears" data-price="13.00" data-img="./assets/e8e3423a78a0a0f8433118ff898db32e23c0f11d.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Golden Bartlett Pears</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$13.00</span>
+                <span class="price-old">$16.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="fruit" data-aos="fade-up" data-delay="150">
+            <div class="product-badge badge-sale">Sale</div>
+            <div class="product-img-box">
+              <img src="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" alt="Fresh Organic Kiwi" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Fresh Organic Kiwi" data-price="11.00" data-img="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Fresh Organic Kiwi" data-price="11.00" data-old="14.00" data-img="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Fresh Organic Kiwi" data-price="11.00" data-img="./assets/a83fa4af0d5241821a8dd24cbacc7fe0483b9f3d.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Fresh Organic Kiwi</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$11.00</span>
+                <span class="price-old">$14.00</span>
+              </div>
+            </div>
+          </article>
+
+<article class="product-card" data-category="vegetable" data-aos="fade-up" data-delay="200">
+            <div class="product-badge badge-organic">Organic</div>
+            <div class="product-img-box">
+              <img src="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" alt="Wild Forest Mushrooms" class="product-img">
+              <div class="product-hover-actions">
+                <button class="card-action-btn card-wishlist-btn" data-title="Wild Forest Mushrooms" data-price="16.00" data-img="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" title="Add to Wishlist" aria-label="Add to Wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button class="card-action-btn quick-view-btn" data-title="Wild Forest Mushrooms" data-price="16.00" data-old="19.00" data-img="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" title="Quick View">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button class="card-action-btn add-cart-btn" data-title="Wild Forest Mushrooms" data-price="16.00" data-img="./assets/e96c1a14b72df9008e2d1df0c80105e2d971fe25.webp" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <h3 class="product-title"><a href="shop.html">Wild Forest Mushrooms</a></h3>
+              <div class="product-pricing">
+                <span class="price-current">$16.00</span>
+                <span class="price-old">$19.00</span>
+              </div>
+            </div>
+          </article>
+
+</div>
+
+</div>
+    </section>
+
+<section class="video-banner-section" id="videoBanner" data-aos="fade-up">
+      <div class="video-banner-bg" style="background-image: url('./assets/f945d70ed4463840a1d174c646cda5d73ba149a1.webp');">
+        <div class="video-banner-overlay"></div>
+        <div class="video-banner-content">
+          <button class="video-play-btn" id="videoPlayBtn" aria-label="Watch Organic Farming Video">
+            <span class="play-pulse wave-1"></span>
+            <span class="play-pulse wave-2"></span>
+            <span class="play-pulse wave-3"></span>
+            <span class="play-icon-box">
+              <i class="fa-solid fa-play"></i>
+            </span>
+          </button>
+          <span class="video-badge">Watch Our Farm Story</span>
+          <h2 class="video-title">Naturally Pure, Organically Grown</h2>
+        </div>
+      </div>
+    </section>
+
+<div class="video-modal" id="videoModal">
+      <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+      <div class="video-modal-box">
+        <button class="video-close-btn" id="videoCloseBtn" aria-label="Close Video" title="Close Video">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="video-frame-container">
+          <video id="storyVideoPlayer" controls playsinline preload="metadata" muted>
+            <source src="./assets/story.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+      </div>
+    </div>
+
+<section class="testimonials-section section-padding bg-cream" id="testimonials">
+      <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+          <span class="section-subtitle">
+            <span class="sub-dash"></span> Testimonials <span class="sub-dash"></span>
+          </span>
+          <h2 class="section-heading">Clients Feedbacks.</h2>
+        </div>
+
+<div class="testimonial-carousel-wrap" data-aos="fade-up" data-delay="100">
+          <div class="testimonial-track" id="testimonialTrack">
+
+<div class="marquee-group">
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/0cf1237c935a51a127dcbb0dbb3551b4e4e0b6d1.webp" alt="David Cooper" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "The freshness and flavor of their organic produce is unmatched. Knowing it comes directly from verified local farms gives our family total peace of mind."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">David Cooper</h4>
+                    <span class="client-role">Organic Food Lover</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/392cde6e8251df9786c8e5772ef56301a664c2c0.webp" alt="Robert Fox" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Fast delivery, spotless packaging, and produce that stays crisp for days. Their original honey package is honestly the best honey I've ever tasted!"
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Robert Fox</h4>
+                    <span class="client-role">Verified Buyer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/3a2893237814bfc52fc8996e68a6adf693229854.webp" alt="Albert Flores" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Switching to this store has completely changed our family's meal prep. The seasonal fruit boxes and vegetables arrive farm-fresh every single week."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Albert Flores</h4>
+                    <span class="client-role">Healthy Chef</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/59efc846d4e04704c41f500e628fba794529f1ae.webp" alt="Thomas Miller" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "As an agriculturist, I can attest to the genuine quality of their soil and farming standards. Truly 100% organic and ethically harvested with care."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Thomas Miller</h4>
+                    <span class="client-role">Agricultural Expert</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/b92a602477637369f86b525ae65f768855b4cc25.webp" alt="Lucas Bennett" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Incredible customer care and consistent quality across all orders. Their online ordering is so smooth, and customer service is always responsive."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Lucas Bennett</h4>
+                    <span class="client-role">Loyal Customer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/f9f5bde7c2fbac9e1624abbefc482e8c9909da03.webp" alt="Marcus Rivera" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Great prices for premium organic produce. The berries and exotic fruits are always bursting with genuine flavor, just like picked from the branch!"
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Marcus Rivera</h4>
+                    <span class="client-role">Organic Farmer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+            </div>
+
+<div class="marquee-group" aria-hidden="true">
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/0cf1237c935a51a127dcbb0dbb3551b4e4e0b6d1.webp" alt="David Cooper" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "The freshness and flavor of their organic produce is unmatched. Knowing it comes directly from verified local farms gives our family total peace of mind."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">David Cooper</h4>
+                    <span class="client-role">Organic Food Lover</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/392cde6e8251df9786c8e5772ef56301a664c2c0.webp" alt="Robert Fox" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Fast delivery, spotless packaging, and produce that stays crisp for days. Their original honey package is honestly the best honey I've ever tasted!"
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Robert Fox</h4>
+                    <span class="client-role">Verified Buyer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/3a2893237814bfc52fc8996e68a6adf693229854.webp" alt="Albert Flores" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Switching to this store has completely changed our family's meal prep. The seasonal fruit boxes and vegetables arrive farm-fresh every single week."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Albert Flores</h4>
+                    <span class="client-role">Healthy Chef</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/59efc846d4e04704c41f500e628fba794529f1ae.webp" alt="Thomas Miller" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "As an agriculturist, I can attest to the genuine quality of their soil and farming standards. Truly 100% organic and ethically harvested with care."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Thomas Miller</h4>
+                    <span class="client-role">Agricultural Expert</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/b92a602477637369f86b525ae65f768855b4cc25.webp" alt="Lucas Bennett" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Incredible customer care and consistent quality across all orders. Their online ordering is so smooth, and customer service is always responsive."
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Lucas Bennett</h4>
+                    <span class="client-role">Loyal Customer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+
+<div class="testimonial-card">
+                <div class="testimonial-card-inner">
+                  <div class="client-avatar-box">
+                    <img src="./assets/f9f5bde7c2fbac9e1624abbefc482e8c9909da03.webp" alt="Marcus Rivera" class="client-avatar">
+                  </div>
+                  <div class="client-quote-content">
+                    <p class="quote-text">
+                      "Great prices for premium organic produce. The berries and exotic fruits are always bursting with genuine flavor, just like picked from the branch!"
+                    </p>
+                    <div class="client-rating">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="client-name">Marcus Rivera</h4>
+                    <span class="client-role">Organic Farmer</span>
+                  </div>
+                  <div class="quote-watermark"><i class="fa-regular fa-comments"></i></div>
+                </div>
+              </div>
+            </div>
+
+</div>
+        </div>
+
+</div>
+    </section>
+
+<section class="blog-section section-padding" id="blog">
+      <div class="container">
+
+<div class="section-title-wrap text-center" data-aos="fade-up">
+          <span class="section-subtitle">
+            <span class="sub-dash"></span> From Our Blog <span class="sub-dash"></span>
+          </span>
+          <h2 class="section-heading">Latest Blog</h2>
+        </div>
+
+<div class="blog-grid">
+
+<article class="blog-card" data-aos="fade-up" data-delay="50">
+            <div class="blog-img-box">
+              <img src="./assets/59ace3c2f68395fc23cd6e50a728d13c4cb744e0.webp" alt="Better Water Habits In Gardening" class="blog-img">
+              <span class="blog-category-badge">Gardening</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span><i class="fa-regular fa-user"></i> By Admin</span>
+                <span><i class="fa-regular fa-calendar"></i> 24 Sep 2026</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="news.html">Better Water Habits In Gardening For Healthier Crops</a>
+              </h3>
+              <p class="blog-excerpt">
+                Discover eco-friendly irrigation routines to conserve water while ensuring plant roots absorb balanced soil nutrients.
+              </p>
+              <a href="news.html" class="blog-link">
+                <span>Read More</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+<article class="blog-card" data-aos="fade-up" data-delay="150">
+            <div class="blog-img-box">
+              <img src="./assets/e10cf1f578904acfc31ba15d0055d690ba98fdb3.webp" alt="How To Plant A Tree In Garden" class="blog-img">
+              <span class="blog-category-badge">Planting</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span><i class="fa-regular fa-user"></i> By Organic Team</span>
+                <span><i class="fa-regular fa-calendar"></i> 20 Sep 2026</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="news.html">How To Plant A Tree In Garden: Complete Beginner Guide</a>
+              </h3>
+              <p class="blog-excerpt">
+                Step-by-step guidance on selecting rich organic compost, digging appropriate depths, and seasonal seedling protection.
+              </p>
+              <a href="news.html" class="blog-link">
+                <span>Read More</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+<article class="blog-card" data-aos="fade-up" data-delay="250">
+            <div class="blog-img-box">
+              <img src="./assets/7973c9d58ffd5e2129e123755edb8a3136111ad9.webp" alt="Grow Better In Garden With Organic Soil Compost" class="blog-img">
+              <span class="blog-category-badge">Farming</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span><i class="fa-regular fa-user"></i> By Green Expert</span>
+                <span><i class="fa-regular fa-calendar"></i> 18 Sep 2026</span>
+              </div>
+              <h3 class="blog-title">
+                <a href="news.html">Grow Better In Garden With Organic Soil Compost</a>
+              </h3>
+              <p class="blog-excerpt">
+                Learn how natural mulching and compost enrich home gardens with active microbes and pesticide-free pest repellence.
+              </p>
+              <a href="news.html" class="blog-link">
+                <span>Read More</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+</div>
+
+</div>
+    </section>
+
+<section class="features-bar-section" data-aos="fade-up">
+      <div class="container">
+        <div class="features-bar-card">
+          <div class="features-grid">
+
+<div class="feature-item" data-aos="fade-up" data-delay="50">
+              <div class="feature-icon-box">
+                <img src="./assets/4415c7e226862246a8d600b7ab173fcc53d1ed32.webp" alt="Curated Products Icon" class="feature-icon-img">
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Curated Products</h4>
+                <p class="feature-sub">Provide Curated Products for all product over $100</p>
+              </div>
+            </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="100">
+              <div class="feature-icon-box">
+                <img src="./assets/f8b26d35d6c4910b86ff56b27888cf0033d6e6d3.webp" alt="Handmade Icon" class="feature-icon-img">
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Handmade</h4>
+                <p class="feature-sub">We ensure the product quality that is our main goal</p>
+              </div>
+            </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="150">
+              <div class="feature-icon-box">
+                <img src="./assets/e87d28baeef0352116b272077c8d9a2837d4f876.webp" alt="Natural Food Icon" class="feature-icon-img">
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Natural Food</h4>
+                <p class="feature-sub">Return product within 3 days for any product you buy</p>
+              </div>
+            </div>
+
+<div class="feature-item" data-aos="fade-up" data-delay="200">
+              <div class="feature-icon-box">
+                <img src="./assets/613ffe9233406a58339e4c9bdb68a2bdde71ee42.webp" alt="Free home delivery Icon" class="feature-icon-img">
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">Free home delivery</h4>
+                <p class="feature-sub">We ensure the product quality that you can trust easily</p>
+              </div>
+            </div>
+
+</div>
+        </div>
+      </div>
+    </section>
+
+</main>
+
+<footer class="footer-area bg-cream" id="contact">
+    <div class="container footer-main">
+      <div class="footer-grid">
+
+<div class="footer-col col-brand" data-aos="fade-up" data-delay="50">
+          <a href="index.html" class="footer-logo-link" aria-label="Stackly Home">
+            <img src="./assets/logo.webp" alt="Stackly Organic Food & Restaurant Logo" class="footer-logo">
+          </a>
+          <p class="footer-about">
+            Stackly delivers 100% certified organic foods and fresh farm produce directly to your doorstep.
+          </p>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Brooklyn, New York, United States</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="404.html">+0123-456789</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              <a href="404.html">example@example.com</a>
+            </li>
+          </ul>
+          <div class="footer-social-row">
+            <a href="404.html" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="404.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+<div class="footer-col col-company" data-aos="fade-up" data-delay="100">
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-services" data-aos="fade-up" data-delay="150">
+          <h4 class="footer-col-title">Services.</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Order tracking</a></li>
+            <li><a href="404.html">Home Delivery Info</a></li>
+            <li><a href="404.html">Wholesale Produce</a></li>
+            <li><a href="404.html">Farm Subscriptions</a></li>
+            <li><a href="404.html">Terms & Conditions</a></li>
+            <li><a href="404.html">Promotional Offers</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-care" data-aos="fade-up" data-delay="200">
+          <h4 class="footer-col-title">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Help Center</a></li>
+            <li><a href="404.html">Returns & Refunds</a></li>
+            <li><a href="404.html">Shipping Policy</a></li>
+            <li><a href="404.html">Quality Guarantee</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Payment Security</a></li>
+          </ul>
+        </div>
+
+<div class="footer-col col-newsletter" data-aos="fade-up" data-delay="250">
+          <h4 class="footer-col-title">Newsletter</h4>
+          <p class="newsletter-desc">
+            Subscribe to our weekly Newsletter and receive updates via email.
+          </p>
+          <form class="newsletter-form" id="newsletterForm" action="404.html" method="get">
+            <div class="newsletter-input-box">
+              <input type="email" id="newsletterEmail" name="email" placeholder="Email*" required>
+              <button type="submit" class="newsletter-submit-btn" aria-label="Subscribe to newsletter">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+
+<div class="we-accept-wrap">
+            <span class="we-accept-title">We Accept</span>
+            <div class="payment-accept-row">
+              <span class="payment-logo paypal"><i class="fa-brands fa-paypal"></i> PayPal</span>
+              <span class="payment-logo visa"><i class="fa-brands fa-cc-visa"></i> VISA</span>
+              <span class="payment-logo discover"><i class="fa-brands fa-cc-discover"></i> DISCOVER</span>
+              <span class="payment-logo mastercard"><i class="fa-brands fa-cc-mastercard"></i> MasterCard</span>
+              <span class="payment-logo amex"><i class="fa-brands fa-cc-amex"></i> AMEX</span>
+            </div>
+          </div>
+        </div>
+
+</div>
+    </div>
+
+<div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p class="copyright-text">
+          All Rights Reserved @ Company 2026
+        </p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Terms & Conditions</a>
+          <a href="404.html">Claim</a>
+          <a href="404.html">Privacy & Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<div class="product-modal" id="quickViewModal">
+    <div class="product-modal-backdrop" id="quickViewBackdrop"></div>
+    <div class="product-modal-card">
+      <button class="modal-close-btn" id="quickViewCloseBtn" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-product-grid">
+        <div class="modal-product-img-wrap">
+          <img src="" alt="Product" id="modalProductImg">
+        </div>
+        <div class="modal-product-info">
+          <span class="badge-pill modal-badge">100% Organic</span>
+          <h3 class="modal-product-title" id="modalProductTitle">Product Title</h3>
+          <div class="product-rating modal-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <span class="rating-text">(48 customer reviews)</span>
+          </div>
+          <div class="modal-pricing">
+            <span class="price-current modal-price" id="modalProductPrice">$15.00</span>
+            <span class="price-old modal-old-price" id="modalProductOldPrice">$19.00</span>
+          </div>
+          <p class="modal-product-desc">
+            Organically cultivated without chemical pesticides or artificial fertilizers. Hand-picked at peak ripeness to ensure extraordinary natural taste, aroma, and essential nutritional profile.
+          </p>
+          <div class="modal-qty-row">
+            <div class="cart-qty-ctrl">
+              <button class="qty-btn" id="modalQtyMinus">-</button>
+              <span class="qty-val" id="modalQtyVal">1</span>
+              <button class="qty-btn" id="modalQtyPlus">+</button>
+            </div>
+            <button class="btn btn-primary" id="modalAddToCartBtn">
+              <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+            </button>
+          </div>
+          <div class="modal-meta-list">
+            <p><strong>Category:</strong> Fresh Organic Produce</p>
+            <p><strong>Availability:</strong> In Stock (Farm Ready)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<button class="back-to-top" id="backToTopBtn" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+<script src="script.js"></script>
+</body>
+</html>
+
