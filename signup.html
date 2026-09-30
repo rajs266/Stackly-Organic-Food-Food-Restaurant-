@@ -252,24 +252,6 @@ const roleOptions = document.querySelectorAll('#signupRoleSelector .role-option'
       });
     });
 
-function initPwdToggle(btnId, inputId, iconId) {
-      const btn = document.getElementById(btnId);
-      const input = document.getElementById(inputId);
-      const icon = document.getElementById(iconId);
-      if (btn && input) {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          const isPassword = input.type === 'password';
-          input.type = isPassword ? 'text' : 'password';
-          if (icon) {
-            icon.classList.toggle('fa-eye', !isPassword);
-            icon.classList.toggle('fa-eye-slash', isPassword);
-          }
-        });
-      }
-    }
-    initPwdToggle('signupPwdToggle', 'signupPassword', 'signupPwdIcon');
-    initPwdToggle('signupConfirmPwdToggle', 'signupConfirmPassword', 'signupConfirmPwdIcon');
 
 let signupRedirectTimer = null;
     const signupFormEl = document.getElementById('signupForm');

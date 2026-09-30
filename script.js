@@ -1892,14 +1892,18 @@ function setupPasswordToggle(toggleBtnId, inputId, iconId) {
     const input = document.getElementById(inputId);
     const icon = document.getElementById(iconId);
 
-if (btn && input) {
+    if (btn && input && !btn.dataset.pwdBound) {
+      btn.dataset.pwdBound = 'true';
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const isPassword = input.type === 'password';
         input.type = isPassword ? 'text' : 'password';
         if (icon) {
-          icon.classList.toggle('fa-eye', !isPassword);
-          icon.classList.toggle('fa-eye-slash', isPassword);
+          if (isPassword) {
+            icon.className = 'fa-solid fa-eye-slash';
+          } else {
+            icon.className = 'fa-regular fa-eye';
+          }
         }
       });
     }

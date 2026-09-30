@@ -220,20 +220,6 @@ const roleOptions = document.querySelectorAll('#loginRoleSelector .role-option')
       });
     });
 
-const loginPwdToggle = document.getElementById('loginPwdToggle');
-    const loginPassword = document.getElementById('loginPassword');
-    const loginPwdIcon = document.getElementById('loginPwdIcon');
-    if (loginPwdToggle && loginPassword) {
-      loginPwdToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isPassword = loginPassword.type === 'password';
-        loginPassword.type = isPassword ? 'text' : 'password';
-        if (loginPwdIcon) {
-          loginPwdIcon.classList.toggle('fa-eye', !isPassword);
-          loginPwdIcon.classList.toggle('fa-eye-slash', isPassword);
-        }
-      });
-    }
 
 let loginRedirectTimer = null;
     const loginFormEl = document.getElementById('loginForm');

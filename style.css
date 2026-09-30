@@ -80,7 +80,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   max-width: 100%;
-  zoom: 0.8;
+  zoom: 0.9;
 }
 
 html.filter-drawer-open,
@@ -5540,6 +5540,11 @@ transition: none;
   margin: 0 auto;
 }
 
+.auth-form {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .auth-heading {
   font-size: 2.25rem;
   font-weight: 800;
@@ -5811,14 +5816,18 @@ transition: none;
 }
 
 .auth-role-group {
+  width: 100%;
+  box-sizing: border-box;
   margin-bottom: 22px;
 }
 
 .auth-role-selector {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   margin-top: 6px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .role-option {
@@ -5826,12 +5835,16 @@ transition: none;
   border: 1.5px solid #E2E8F0;
   border-radius: 12px;
   padding: 12px 14px;
+  min-height: 70px;
   background: #FFFFFF;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
   display: flex;
   align-items: center;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .role-option input[type="radio"] {
@@ -5846,6 +5859,7 @@ transition: none;
   align-items: center;
   gap: 12px;
   width: 100%;
+  min-width: 0;
 }
 
 .role-icon {
@@ -5857,7 +5871,7 @@ transition: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   transition: all 0.25s ease;
   flex-shrink: 0;
 }
@@ -5870,7 +5884,7 @@ transition: none;
 }
 
 .role-title {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #0F172A;
   font-family: var(--font-heading, 'Outfit', sans-serif);
@@ -5878,12 +5892,12 @@ transition: none;
 }
 
 .role-subtitle {
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   color: #64748B;
-  margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top: 3px;
+  line-height: 1.35;
+  white-space: normal;
+  word-break: normal;
 }
 
 .role-check-indicator {
